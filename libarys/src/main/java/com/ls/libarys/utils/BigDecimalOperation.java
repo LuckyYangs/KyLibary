@@ -3,8 +3,7 @@ package com.ls.libarys.utils;
 import java.math.BigDecimal;
 
 /**
- * 作  者：李洋 （liyangman518@163.com）
- * 时  间：2017/8/24 17:12
+
  * 类  名：BigDecimalOperation
  * 描  述: 提供精确的加减运算乘运算
  */

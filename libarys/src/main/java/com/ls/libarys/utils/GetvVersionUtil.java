@@ -6,8 +6,7 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 
 /**
- * 作  者：李洋 （liyangman518@163.com）
- * 时  间：2017/8/23 09:49
+
  * 类  名：GetvVersionUtil
  * 描  述: 返回当前程序版本名
  *

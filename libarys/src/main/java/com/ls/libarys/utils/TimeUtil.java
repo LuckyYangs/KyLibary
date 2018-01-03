@@ -13,8 +13,6 @@ import android.widget.TextView;
 /**
  * @ClassName: TimeUtil
  * @Description: 倒计时工具类
- * @author 李洋（liyangman@163.com）
- * @date 2016年7月21日 下午4:35:14
  *
  */
 public class TimeUtil extends CountDownTimer{

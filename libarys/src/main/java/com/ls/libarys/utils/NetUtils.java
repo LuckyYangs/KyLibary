@@ -5,10 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * 作  者：李洋 （liyangman518@163.com）
- * 时  间：2017/9/14 08:34
- * 项目名：CompanyProject
- * 包  名：com.md.wwx.util
+
  * 类  名：NetUtils
  * 描  述: {判断网络状态工具类
  */

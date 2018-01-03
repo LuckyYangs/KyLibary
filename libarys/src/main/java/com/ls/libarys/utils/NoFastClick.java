@@ -2,10 +2,6 @@ package com.ls.libarys.utils;
 
 
 /**
- * 作  者：李洋 （liyangman518@163.com）
- * 时  间：2017/8/1 14:42
- * 项目名：wwx
- * 包  名：me.iwf.photopicker.utils
  * 类  名：${CLASS_NAME}
  * 描  述: {描述这个类}
  */
