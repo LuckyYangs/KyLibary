@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/libarys/src/main/java/com/ls/libarys/BannarView/CircleFlowIndicator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/libarys/src/main/java/com/ls/libarys/BannarView/FlowIndicator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/libarys/src/main/java/com/ls/libarys/BannarView/ViewFlow.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/libarys/src/main/java/com/ls/libarys/pulltofresh/MyListener.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/libarys/src/main/java/com/ls/libarys/pulltofresh/PullToRefreshLayout.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/libarys/src/main/java/com/ls/libarys/view/CustomDialog.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/libarys/src/main/java/com/ls/libarys/view/CustomPopWindow.java" charset="GBK" />
+  </component>
+</project>
