@@ -8,7 +8,7 @@ import android.widget.Toast;
 public class ToastUtil {
     private static Toast toast;
     /**
-     * 自定义显示Toast时间
+     * 自定义Toast
      *
      * @param context
      * @param message
