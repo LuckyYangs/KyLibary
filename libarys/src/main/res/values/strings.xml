@@ -6,7 +6,7 @@
         <item>@color/material_blue</item>
         <item>@color/material_yellow</item>
     </integer-array>
-
+    <string name="md">李洋技术支持</string>
     <!-- 下拉刷新，上拉加载 -->
     <string name="head">这里是HeadView</string>
     <string name="pull_to_refresh">下拉刷新</string>
@@ -19,4 +19,35 @@
     <string name="loading">正在加载...</string>
     <string name="load_succeed">加载成功</string>
     <string name="load_fail">加载失败</string>
+
+    <!--lsrefreshlayout header string-->
+    <string name="fgh_mask_top_pull">Pull To Break Out!</string>
+    <string name="fgh_mask_top_release">Release To Break Out!</string>
+    <string name="fgh_mask_bottom">Scroll to move handle</string>
+
+    <string name="fgh_text_game_over">Game Over</string>
+    <string name="fgh_text_loading">正在刷新</string>
+    <string name="fgh_text_loading_finish">刷新完成</string>
+    <string name="fgh_text_loading_failed">刷新失败</string>
+    <!--lsrefreshlayout layout string-->
+    <string name="srl_header_pulling">下拉刷新</string>
+    <string name="srl_header_release">释放立即刷新</string>
+    <string name="srl_header_refreshing">正在刷新…</string>
+    <string name="srl_header_loading">加载中…</string>
+    <string name="srl_header_finish">刷新成功</string>
+    <string name="srl_header_failed">刷新失败</string>
+    <string name="srl_header_update">\'更新于\' M-d HH:mm</string>
+    <string name="srl_header_secondary">Release To Second Floor</string>
+
+    <string name="srl_footer_pulling">上拉加载更多</string>
+    <string name="srl_footer_release">松开立即加载</string>
+    <string name="srl_footer_loading">加载中…</string>
+    <string name="srl_footer_refreshing">刷新中…</string>
+    <string name="srl_footer_finish">加载成功</string>
+    <string name="srl_footer_failed">加载失败</string>
+    <string name="srl_footer_nothing" formatted="true" translatable="true">----------------我是有底线的-----------------</string>
+
+    <string name="srl_content_empty">The content view in SmartRefreshLayout is empty. Do you forget to add it in xml layout file?</string>
+    <string name="srl_component_falsify" formatted="false">%s falsify area,\n Represents the height[%.1fdp] of drag at run time,\n It does not show anything.</string>
+
 </resources>
