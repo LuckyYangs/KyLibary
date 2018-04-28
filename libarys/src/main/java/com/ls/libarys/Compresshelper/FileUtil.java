@@ -7,6 +7,8 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.util.Log;
 
+import com.ls.libarys.utils.StringsUtil;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -36,7 +38,7 @@ public class FileUtil {
      * @return 文件
      */
     public static File getFileByPath(String filePath) {
-        return StringUtil.isSpace(filePath) ? null : new File(filePath);
+        return StringsUtil.isSpace(filePath) ? null : new File(filePath);
     }
 
     /**
@@ -80,17 +82,16 @@ public class FileUtil {
      */
     public static boolean rename(File file, String newName) {
         // 文件为空返回false
-        if (file == null) return false;
+        if (file == null){ return false;}
         // 文件不存在返回false
-        if (!file.exists()) return false;
-        // 新的文件名为空返回false
-        if (StringUtil.isSpace(newName)) return false;
+        if (!file.exists()) {return false;}
+       // 新的文件名为空返回false
+        if (StringsUtil.isSpace(newName)){ return false;}
         // 如果文件名没有改变返回true
-        if (newName.equals(file.getName())) return true;
+        if (newName.equals(file.getName())) {return true;}
         File newFile = new File(file.getParent() + File.separator + newName);
         // 如果重命名的文件已存在返回false
-        return !newFile.exists()
-                && file.renameTo(newFile);
+        return !newFile.exists() && file.renameTo(newFile);
     }
 
     /**
