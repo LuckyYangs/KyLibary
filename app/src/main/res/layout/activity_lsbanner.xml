@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ls.kylibary.banner.LsBannerActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/common_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.ls.libarys.lybanner.LsBanner
+            android:id="@+id/ba1"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.ls.libarys.lybanner.LsBanner
+                android:id="@+id/banner1"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                app:indicator_drawable_selected="@drawable/selected_radius"
+                app:indicator_drawable_unselected="@drawable/unselected_radius"
+                app:indicator_height="8dp"
+                app:indicator_margin="4dp"
+                app:indicator_width="8dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center"/>
+            <com.ls.libarys.lybanner.LsBanner
+                android:id="@+id/banner2"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                app:indicator_drawable_selected="@color/material_blue"
+                app:indicator_drawable_unselected="@android:color/white"
+                app:indicator_height="4dp"
+                app:indicator_margin="4dp"
+                app:indicator_width="20dp"
+                app:title_height="30dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center"/>
+
+            <com.ls.libarys.lybanner.LsBanner
+                android:id="@+id/banner3"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                app:title_background="#555CB85C"
+                app:title_textsize="10sp"
+                app:title_textcolor="@android:color/white"
+                app:title_height="30dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:gravity="center"
+                android:text="这里只是列举了一部分自定义属性的使用 \n 更多用法请看文档"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

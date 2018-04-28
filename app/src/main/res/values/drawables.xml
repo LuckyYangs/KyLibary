@@ -1,0 +1,8 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_camera" type="drawable">@mipmap/carome</item>
+    <item name="ic_menu_gallery" type="drawable">@mipmap/sxjz</item>
+    <item name="ic_menu_slideshow" type="drawable">@mipmap/lb</item>
+    <item name="ic_menu_manage" type="drawable">@mipmap/gjx</item>
+    <item name="ic_menu_share" type="drawable">@mipmap/ab</item>
+    <item name="ic_menu_send" type="drawable">@mipmap/ay</item>
+</resources>

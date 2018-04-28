@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ls.kylibary.resfresh.SunActivity">
+    <include layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout
+        android:id="@+id/rfyf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnableLoadMore="true"
+        app:srlEnableScrollContentWhenLoaded="true"
+        app:srlEnableAutoLoadMore="false">
+        <com.ls.libarys.lsrefreshlayout.header.PhoenixHeader
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <ListView
+            android:id="@+id/flv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            />
+        <com.ls.libarys.lsrefreshlayout.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout>
+
+
+</LinearLayout>

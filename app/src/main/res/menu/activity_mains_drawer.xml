@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="照片视频选择" />
+        <item
+            android:id="@+id/nav_refresh"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="刷新加载" />
+        <item
+            android:id="@+id/nav_banner"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="轮播图" />
+        <item
+            android:id="@+id/nav_tool"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="工具类" />
+    </group>
+    <group
+        android:id="@+id/theme">
+        <item
+            android:iconTint="@color/colorAccent"
+            android:icon="@mipmap/theme"
+            android:title="主题切换"/>
+    </group>
+    <group
+        android:id="@+id/themecolor">
+            <item
+                android:id="@+id/nav_tbc"
+                android:iconTint="@color/colorAccent"
+                android:icon="@drawable/ic_menu_share"
+                android:title="黑色" />
+            <item
+                android:id="@+id/nav_tby"
+                android:iconTint="@color/colorAccent"
+                android:icon="@drawable/ic_menu_send"
+                android:title="黄色" />
+    </group>
+    <group
+        android:id="@+id/theme">
+        <item
+            android:id="@+id/nav_about"
+            android:iconTint="@color/colorAccent"
+            android:icon="@mipmap/zfj"
+            android:title="关于框架"/>
+    </group>
+</menu>

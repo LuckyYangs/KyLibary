@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ls.kylibary.resfresh.MaiDianActivity">
+    <include layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout
+        android:id="@+id/rfyq"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlHeaderHeight="150dp"
+        app:srlHeaderMaxDragRate="1">
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lineSpacingExtra="5dp"
+            android:drawableTop="@mipmap/a"
+            android:drawablePadding="1dp"
+            android:background="#555"
+            android:gravity="center"
+            android:textColor="#aaa"
+            android:textSize="16sp"
+            android:text="@string/md"
+            app:layout_srlBackgroundColor="#555"
+            app:layout_srlSpinnerStyle="Scale"/>
+        <ListView
+            android:id="@+id/qlv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            />
+        <com.ls.libarys.lsrefreshlayout.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            app:srlDrawableProgress="@drawable/ic_progress_puzzle"
+            android:layout_height="wrap_content"/>
+    </com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout>
+</LinearLayout>
