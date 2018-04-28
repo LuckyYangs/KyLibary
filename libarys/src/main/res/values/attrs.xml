@@ -272,4 +272,55 @@
         <attr name="srlEnablePullToCloseTwoLevel" format="boolean"/>
     </declare-styleable>
 
+
+    <!--lsbanner-->
+    <declare-styleable name="LsBanner">
+        <attr name="delay_time" format="integer" />
+        <attr name="scroll_time" format="integer" />
+        <attr name="is_auto_play" format="boolean" />
+        <attr name="title_background" format="color|reference" />
+        <attr name="title_textcolor" format="color" />
+        <attr name="title_textsize" format="dimension" />
+        <attr name="title_height" format="dimension" />
+        <attr name="indicator_width" format="dimension" />
+        <attr name="indicator_height" format="dimension" />
+        <attr name="indicator_margin" format="dimension" />
+        <attr name="indicator_drawable_selected" format="reference" />
+        <attr name="indicator_drawable_unselected" format="reference" />
+        <attr name="banner_layout" format="reference"/>
+        <attr name="banner_default_image" format="reference"/>
+        <attr name="image_scale_type" format="enum">
+            <enum name="center" value="0" />
+            <enum name="center_crop" value="1" />
+            <enum name="center_inside" value="2" />
+            <enum name="fit_center" value="3" />
+            <enum name="fit_end" value="4" />
+            <enum name="fit_start" value="5" />
+            <enum name="fit_xy" value="6" />
+            <enum name="matrix" value="7" />
+        </attr>
+        <!--<attr name="indicator_animator" format="reference" />-->
+        <!--<attr name="indicator_animator_reverse" format="reference" />-->
+    </declare-styleable>
+<!--bottombar-->
+    <declare-styleable name="BottomNavigationBar">
+        <attr name="bnbElevation" format="dimension" />
+        <attr name="bnbActiveColor" format="color" />
+        <attr name="bnbInactiveColor" format="color" />
+        <attr name="bnbBackgroundColor" format="color" />
+        <attr name="bnbAnimationDuration" format="integer" />
+        <attr name="bnbMode" format="enum">
+            <enum name="mode_default" value="0" />
+            <enum name="mode_fixed" value="1" />
+            <enum name="mode_shifting" value="2" />
+            <enum name="mode_fixed_no_title" value="3" />
+            <enum name="mode_shifting_no_title" value="4" />
+        </attr>
+        <attr name="bnbBackgroundStyle" format="enum">
+            <enum name="background_style_default" value="0" />
+            <enum name="background_style_static" value="1" />
+            <enum name="background_style_ripple" value="2" />
+        </attr>
+        <attr name="bnbAutoHideEnabled" format="boolean" />
+    </declare-styleable>
 </resources>

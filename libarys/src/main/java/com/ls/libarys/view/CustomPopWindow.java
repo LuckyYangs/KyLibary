@@ -16,10 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
-/**
- * 作  者：@author李 洋（liyangman518@163.com）
 
- */
 public class CustomPopWindow implements PopupWindow.OnDismissListener{
     private static final String TAG = "CustomPopWindow";
     private static final float DEFAULT_ALPHA = 0.7f;
@@ -41,17 +38,13 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
     private boolean mTouchable = true;//default is ture
     private View.OnTouchListener mOnTouchListener;
 
-    private Window mWindow;//当前Activity 的窗口
-    /**
-     * 弹出PopWindow 背景是否变暗，默认不会变暗。
-     */
+    private Window mWindow;
+
     private boolean mIsBackgroundDark = false;
 
-    private float mBackgroundDrakValue = 0;// 背景变暗的值，0 - 1
-    /**
-     * 设置是否允许点击 PopupWindow之外的地方，关闭PopupWindow
-     */
-    private boolean enableOutsideTouchDisMiss = true;// 默认点击pop之外的地方可以关闭
+    private float mBackgroundDrakValue = 0;
+
+    private boolean enableOutsideTouchDisMiss = true;
 
     private CustomPopWindow(Context context){
         mContext = context;
@@ -96,8 +89,8 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
 
 
     /**
-     * 相对于父控件的位置（通过设置Gravity.CENTER，下方Gravity.BOTTOM等 ），可以设置具体位置坐标
-     * @param parent 父控件
+     *
+     * @param parent
      * @param gravity
      * @param x the popup's x location offset
      * @param y the popup's y location offset
@@ -111,7 +104,7 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
     }
 
     /**
-     * 添加一些属性设置
+     *
      * @param popupWindow
      */
     private void apply(PopupWindow popupWindow){
@@ -144,10 +137,10 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
         }
 
         // 2017.3.17 add
-        // 获取当前Activity的window
+        //
         Activity activity = (Activity) mContentView.getContext();
         if(activity!=null && mIsBackgroundDark){
-            //如果设置的值在0 - 1的范围内，则用设置的值，否则用默认值
+
             final  float alpha = (mBackgroundDrakValue > 0 && mBackgroundDrakValue < 1) ? mBackgroundDrakValue : DEFAULT_ALPHA;
             mWindow = activity.getWindow();
             WindowManager.LayoutParams params = mWindow.getAttributes();
@@ -166,26 +159,23 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
             mPopupWindow.setAnimationStyle(mAnimationStyle);
         }
 
-        apply(mPopupWindow);//设置一些属性
+        apply(mPopupWindow);
 
         if(mWidth == 0 || mHeight == 0){
             mPopupWindow.getContentView().measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            //如果外面没有设置宽高的情况下，计算宽高并赋值
+
             mWidth = mPopupWindow.getContentView().getMeasuredWidth();
             mHeight = mPopupWindow.getContentView().getMeasuredHeight();
         }
 
-        // 添加dissmiss 监听
+
         mPopupWindow.setOnDismissListener(this);
 
-        //2017.6.27 add:fix 设置  setOutsideTouchable（false）点击外部取消的bug.
-        // 判断是否点击PopupWindow之外的地方关闭 popWindow
+
         if(!enableOutsideTouchDisMiss){
-            //注意这三个属性必须同时设置，不然不能disMiss，以下三行代码在Android 4.4 上是可以，然后在Android 6.0以上，下面的三行代码就不起作用了，就得用下面的方法
             mPopupWindow.setFocusable(true);
             mPopupWindow.setOutsideTouchable(false);
             mPopupWindow.setBackgroundDrawable(null);
-            //注意下面这三个是contentView 不是PopupWindow
             mPopupWindow.getContentView().setFocusable(true);
             mPopupWindow.getContentView().setFocusableInTouchMode(true);
             mPopupWindow.getContentView().setOnKeyListener(new View.OnKeyListener() {
@@ -199,7 +189,6 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
                     return false;
                 }
             });
-            //在Android 6.0以上 ，只能通过拦截事件来解决
             mPopupWindow.setTouchInterceptor(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -235,16 +224,13 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
         dissmiss();
     }
 
-    /**
-     * 关闭popWindow
-     */
+
     public void dissmiss(){
 
         if(mOnDismissListener!=null){
             mOnDismissListener.onDismiss();
         }
 
-        //如果设置了背景变暗，那么在dissmiss的时候需要还原
         if(mWindow!=null){
             WindowManager.LayoutParams params = mWindow.getAttributes();
             params.alpha = 1.0f;
@@ -296,11 +282,7 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
             return this;
         }
 
-        /**
-         * 设置弹窗动画
-         * @param animationStyle
-         * @return
-         */
+
         public PopupWindowBuilder setAnimationStyle(int animationStyle){
             mCustomPopWindow.mAnimationStyle = animationStyle;
             return this;
@@ -345,31 +327,19 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
             return this;
         }
 
-        /**
-         * 设置背景变暗是否可用
-         * @param isDark
-         * @return
-         */
+
         public PopupWindowBuilder enableBackgroundDark(boolean isDark){
             mCustomPopWindow.mIsBackgroundDark = isDark;
             return this;
         }
 
-        /**
-         * 设置背景变暗的值
-         * @param darkValue
-         * @return
-         */
+
         public PopupWindowBuilder setBgDarkAlpha(float darkValue){
             mCustomPopWindow.mBackgroundDrakValue = darkValue;
             return this;
         }
 
-        /**
-         * 设置是否允许点击 PopupWindow之外的地方，关闭PopupWindow
-         * @param disMiss
-         * @return
-         */
+
         public PopupWindowBuilder enableOutsideTouchableDissmiss(boolean disMiss){
             mCustomPopWindow.enableOutsideTouchDisMiss = disMiss;
             return this;
@@ -377,7 +347,6 @@ public class CustomPopWindow implements PopupWindow.OnDismissListener{
 
 
         public CustomPopWindow create(){
-            //构建PopWindow
             mCustomPopWindow.build();
             return mCustomPopWindow;
         }
