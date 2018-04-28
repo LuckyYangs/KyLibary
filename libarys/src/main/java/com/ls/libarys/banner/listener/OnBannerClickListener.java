@@ -1,4 +1,4 @@
-package com.ls.libarys.lybanner.listener;
+package com.ls.libarys.banner.listener;
 
 
 /**

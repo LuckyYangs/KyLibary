@@ -1,4 +1,4 @@
-package com.ls.libarys.lybanner.loader;
+package com.ls.libarys.banner.loader;
 
 import android.content.Context;
 import android.view.View;

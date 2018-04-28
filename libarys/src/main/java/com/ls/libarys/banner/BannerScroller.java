@@ -1,4 +1,4 @@
-package com.ls.libarys.lybanner;
+package com.ls.libarys.banner;
 
 import android.content.Context;
 import android.view.animation.Interpolator;

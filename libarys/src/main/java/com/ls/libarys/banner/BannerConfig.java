@@ -1,4 +1,4 @@
-package com.ls.libarys.lybanner;
+package com.ls.libarys.banner;
 
 
 public class BannerConfig {

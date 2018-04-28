@@ -1,4 +1,4 @@
-package com.ls.libarys.lybanner;
+package com.ls.libarys.banner;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -217,7 +217,7 @@ public class WeakHandler {
     /**
      * Sends a Message containing only the what value, to be delivered
      * after the specified amount of time elapses.
-     * @see #sendMessageDelayed(Message, long)
+     * @see #sendMessageDelayed(android.os.Message, long)
      *
      * @return Returns true if the message was successfully placed in to the
      *         message queue.  Returns false on failure, usually because the
@@ -230,7 +230,7 @@ public class WeakHandler {
     /**
      * Sends a Message containing only the what value, to be delivered
      * at a specific time.
-     * @see #sendMessageAtTime(Message, long)
+     * @see #sendMessageAtTime(android.os.Message, long)
      *
      * @return Returns true if the message was successfully placed in to the
      *         message queue.  Returns false on failure, usually because the
@@ -376,7 +376,7 @@ public class WeakHandler {
             if (mCallback == null) {
                 return;
             }
-            final Callback callback = mCallback.get();
+            final Handler.Callback callback = mCallback.get();
             if (callback == null) { // Already disposed
                 return;
             }

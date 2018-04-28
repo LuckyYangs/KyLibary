@@ -18,7 +18,7 @@ package com.ls.libarys.viewpagertransforms;
 
 import android.view.View;
 
-public class ZoomOutTransformer extends ABaseTransformer {
+public class ZoomOutTranformer extends ABaseTransformer {
 
 	@Override
 	protected void onTransform(View view, float position) {

@@ -1,4 +1,4 @@
-package com.ls.libarys.lybanner;
+package com.ls.libarys.banner;
 
 import android.support.v4.view.ViewPager.PageTransformer;
 
@@ -8,6 +8,7 @@ import com.ls.libarys.viewpagertransforms.CubeInTransformer;
 import com.ls.libarys.viewpagertransforms.CubeOutTransformer;
 import com.ls.libarys.viewpagertransforms.DefaultTransformer;
 import com.ls.libarys.viewpagertransforms.DepthPageTransformer;
+import com.ls.libarys.viewpagertransforms.DrawerTransformer;
 import com.ls.libarys.viewpagertransforms.FlipHorizontalTransformer;
 import com.ls.libarys.viewpagertransforms.FlipVerticalTransformer;
 import com.ls.libarys.viewpagertransforms.ForegroundToBackgroundTransformer;
@@ -18,7 +19,7 @@ import com.ls.libarys.viewpagertransforms.StackTransformer;
 import com.ls.libarys.viewpagertransforms.TabletTransformer;
 import com.ls.libarys.viewpagertransforms.ZoomInTransformer;
 import com.ls.libarys.viewpagertransforms.ZoomOutSlideTransformer;
-import com.ls.libarys.viewpagertransforms.ZoomOutTransformer;
+import com.ls.libarys.viewpagertransforms.ZoomOutTranformer;
 
 
 public class Transformer {
@@ -37,6 +38,7 @@ public class Transformer {
     public static Class<? extends PageTransformer> Stack = StackTransformer.class;
     public static Class<? extends PageTransformer> Tablet = TabletTransformer.class;
     public static Class<? extends PageTransformer> ZoomIn = ZoomInTransformer.class;
-    public static Class<? extends PageTransformer> ZoomOut = ZoomOutTransformer.class;
+    public static Class<? extends PageTransformer> ZoomOut = ZoomOutTranformer.class;
     public static Class<? extends PageTransformer> ZoomOutSlide = ZoomOutSlideTransformer.class;
+    public static Class<? extends PageTransformer> Drawer = DrawerTransformer.class;
 }

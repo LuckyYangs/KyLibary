@@ -44,27 +44,9 @@ public abstract class ABaseTransformer implements PageTransformer {
 	 */
 	@Override
 	public void transformPage(View page, float position) {
-		float clampedPosition = clampPosition(position);
-
-		onPreTransform(page, clampedPosition);
-		onTransform(page, clampedPosition);
-		onPostTransform(page, clampedPosition);
-	}
-
-	/**
-	 * Clamp the position. This step is required for some Android 4 devices.
-	 * The position is dependant on the range of the ViewPager and whether it supports infinite scrolling in both directions.
-	 *
-	 * @param position Position of page relative to the current front-and-center position of the pager.
-	 * @return A value between -1 and 1
-	 */
-	private float clampPosition(float position) {
-		if (position < -1f) {
-			return -1f;
-		} else if (position > 1f) {
-			return 1f;
-		}
-		return position;
+		onPreTransform(page, position);
+		onTransform(page, position);
+		onPostTransform(page, position);
 	}
 
 	/**
@@ -115,9 +97,9 @@ public abstract class ABaseTransformer implements PageTransformer {
 
 		if (hideOffscreenPages()) {
 			page.setAlpha(position <= -1f || position >= 1f ? 0f : 1f);
-			page.setEnabled(false);
+//			page.setEnabled(false);
 		} else {
-			page.setEnabled(true);
+//			page.setEnabled(true);
 			page.setAlpha(1f);
 		}
 	}
