@@ -22,10 +22,6 @@ public class WelcomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarUtil.setTranslucent(this, 0);
-//        //隐藏标题栏
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//         //隐藏状态栏
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
         qd=findViewById(R.id.qd);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
@@ -33,6 +29,13 @@ public class WelcomeActivity extends Activity {
         }else {
             a=1000;
         }
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -40,6 +43,7 @@ public class WelcomeActivity extends Activity {
             }
         },a);
     }
+
     private void startAnimation(View view) {
         //因为CircularReveal动画是api21之后才有的,所以加个判断语句,免得崩溃
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

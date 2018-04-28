@@ -1,8 +1,8 @@
 package com.ls.kylibary;
 
 
-import com.ls.libarys.adapter.base.BaseQuickAdapter;
-import com.ls.libarys.adapter.base.BaseViewHolder;
+import com.ls.libarys.baseadapter.BaseQuickAdapter;
+import com.ls.libarys.baseadapter.BaseViewHolder;
 
 import java.util.List;
 

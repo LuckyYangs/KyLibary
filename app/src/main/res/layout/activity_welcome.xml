@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_monkey"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context="com.ls.kylibary.WelcomeActivity">
     <!--<android.support.v7.widget.CardView-->
     <!--android:id="@+id/cardview_1"-->

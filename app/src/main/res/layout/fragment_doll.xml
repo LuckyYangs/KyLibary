@@ -1,11 +1,13 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context="com.ls.kylibary.banner.DollFragment">
 
-    <com.ls.libarys.lybanner.LsBanner
+    <com.ls.libarys.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/banner1"
         android:layout_width="match_parent"
         android:layout_height="160dp"
@@ -14,5 +16,4 @@
         app:indicator_height="8dp"
         app:indicator_margin="4dp"
         app:indicator_width="8dp" />
-
 </LinearLayout>

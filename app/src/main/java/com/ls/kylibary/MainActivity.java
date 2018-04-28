@@ -2,8 +2,6 @@ package com.ls.kylibary;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -20,7 +18,7 @@ import android.widget.TextView;
 
 import com.ls.kylibary.banner.BannarActivity;
 import com.ls.kylibary.resfresh.ResFreshActivity;
-import com.ls.libarys.adapter.base.BaseQuickAdapter;
+import com.ls.libarys.baseadapter.BaseQuickAdapter;
 import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.StatusBarUtil;
 
@@ -45,25 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initView();
         initData();
         initAdapter();
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-//            }
-//        });
-
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
-
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
+        ;
     }
 
     private void initView() {

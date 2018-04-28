@@ -5,7 +5,7 @@
     <color name="colorPrimaryOverlay">#03988A</color>
     <color name="colorAccent">#03988A</color>
 
-    <color name="colorTextTitle">@color/white</color>
+    <color name="colorTextTitle">#FFFFFF</color>
     <color name="colorTextContent">#444444</color>
     <color name="colorTextAssistant">#888888</color>
     <color name="title">#C6C6C3</color>

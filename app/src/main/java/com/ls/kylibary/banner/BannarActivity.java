@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.ls.kylibary.BaseActivity;
 import com.ls.kylibary.MainActivity;
 import com.ls.kylibary.R;
-import com.ls.kylibary.resfresh.ResFreshActivity;
 import com.ls.libarys.bottombar.BottomNavigationBar;
 import com.ls.libarys.bottombar.BottomNavigationItem;
 import com.ls.libarys.utils.ActivityUtil;
@@ -43,6 +42,8 @@ public class BannarActivity extends BaseActivity {
 
         mVpHome =  findViewById(R.id.vp_home);
         mBottomNavigationBar =  findViewById(R.id.bottom_navigation_bar);
+//        mBottomNavigationBar.setBackgroundColor(R.color.colorPrimary); 设置背景颜色
+        mBottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         mFragmentList.add(new DollFragment());
         mFragmentList.add(new JuxingFragment());
         mFragmentList.add(new GuanggaoFragment());
@@ -76,12 +77,6 @@ public class BannarActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 mBottomNavigationBar.selectTab(position);
-                switch (position) {
-                    case 0:
-                        break;
-                    default:
-                        break;
-                }
             }
 
             @Override

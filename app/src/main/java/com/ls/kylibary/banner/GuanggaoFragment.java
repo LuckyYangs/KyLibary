@@ -9,10 +9,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.ls.kylibary.R;
-import com.ls.libarys.lybanner.BannerConfig;
-import com.ls.libarys.lybanner.LsBanner;
-import com.ls.libarys.lybanner.Transformer;
-import com.ls.libarys.lybanner.listener.OnBannerListener;
+import com.ls.libarys.banner.Banner;
+import com.ls.libarys.banner.BannerConfig;
+import com.ls.libarys.banner.Transformer;
+import com.ls.libarys.banner.listener.OnBannerListener;
+import com.ls.libarys.utils.ToastUtil;
+import com.ls.libarys.viewpagertransforms.ZoomInTransformer;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +26,7 @@ import java.util.List;
  */
 public class GuanggaoFragment extends Fragment implements OnBannerListener {
 
-    LsBanner banner2;
+    Banner banner2;
     public static List<?> images=new ArrayList<>();
     public static List<String> titles=new ArrayList<>();
     View view;
@@ -31,8 +34,7 @@ public class GuanggaoFragment extends Fragment implements OnBannerListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        view=inflater.inflate(R.layout.fragment_guanggao, container, false);
+        view=View.inflate(getActivity(),R.layout.fragment_guanggao, null);
         banner2=view.findViewById(R.id.banner3);
         String[] urls = getResources().getStringArray(R.array.url);
         String[] tips = getResources().getStringArray(R.array.title);
@@ -49,7 +51,7 @@ public class GuanggaoFragment extends Fragment implements OnBannerListener {
     }
     @Override
     public void OnBannerClick(int position) {
-        Toast.makeText(getActivity(), "执行相关点击操作", Toast.LENGTH_SHORT).show();
+        ToastUtil.show(getActivity(), "您点击了第"+position+"张图片");
     }
 
     //如果你需要考虑更好的体验，可以这么操作

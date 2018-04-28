@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.ls.libarys.lybanner.loader.ImageLoader;
+import com.ls.libarys.banner.loader.ImageLoader;
 
 
 public class GlideImageLoader extends ImageLoader {

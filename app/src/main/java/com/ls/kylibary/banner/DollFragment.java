@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.ls.kylibary.R;
-import com.ls.libarys.lybanner.LsBanner;
-import com.ls.libarys.lybanner.Transformer;
-import com.ls.libarys.lybanner.listener.OnBannerListener;
+import com.ls.libarys.banner.Banner;
+import com.ls.libarys.banner.Transformer;
+import com.ls.libarys.banner.listener.OnBannerListener;
+import com.ls.libarys.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,17 +27,17 @@ import java.util.List;
  */
 
 public class DollFragment extends Fragment implements OnBannerListener {
-    LsBanner banner2;
+    Banner banner2;
     public static List<?> images=new ArrayList<>();
     public static List<String> titles=new ArrayList<>();
-
     View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view=inflater.inflate(R.layout.fragment_doll, container, false);
+        view=View.inflate(getActivity(),R.layout.fragment_doll, null);
         banner2=view.findViewById(R.id.banner1);
+
         String[] urls = getResources().getStringArray(R.array.url);
         String[] tips = getResources().getStringArray(R.array.title);
         List list = Arrays.asList(urls);
@@ -46,17 +47,17 @@ public class DollFragment extends Fragment implements OnBannerListener {
         banner2.setImages(images)
                 .setImageLoader(new GlideImageLoader())//加载图片
                 .setIndicatorGravity(5)//设置指示器位置
+                .setBannerAnimation(Transformer.ZoomOut)
+                .setOnBannerListener(this)
                 .start();
-        banner2 .setBannerAnimation(Transformer.ZoomOut);//设置动画
+
         return  view;
     }
 
     @Override
     public void OnBannerClick(int position) {
-        Toast.makeText(getActivity(), "执行相关点击操作", Toast.LENGTH_SHORT).show();
+        ToastUtil.show(getActivity(), "您点击了第"+position+"张图片");
     }
-
-    //如果你需要考虑更好的体验，可以这么操作
 
 
     @Override

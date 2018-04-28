@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@mipmap/carome"
             android:title="照片视频选择" />
         <item
             android:id="@+id/nav_refresh"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@mipmap/sxjz"
             android:title="刷新加载" />
         <item
             android:id="@+id/nav_banner"
@@ -18,7 +18,7 @@
             android:title="轮播图" />
         <item
             android:id="@+id/nav_tool"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@mipmap/lb"
             android:title="工具类" />
     </group>
     <group
@@ -33,16 +33,16 @@
             <item
                 android:id="@+id/nav_tbc"
                 android:iconTint="@color/colorAccent"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@mipmap/ab"
                 android:title="黑色" />
             <item
                 android:id="@+id/nav_tby"
                 android:iconTint="@color/colorAccent"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@mipmap/ay"
                 android:title="黄色" />
     </group>
     <group
-        android:id="@+id/theme">
+        android:id="@+id/about">
         <item
             android:id="@+id/nav_about"
             android:iconTint="@color/colorAccent"
