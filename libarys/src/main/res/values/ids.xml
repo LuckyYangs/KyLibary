@@ -16,6 +16,6 @@
     <item name="numIndicatorInside" type="id"/>
     <item name="indicatorInside" type="id"/>
     <item name="bannerDefaultImage" type="id"/>
-
+    <item name="tag_layout_helper_bg" type="id" />
 
 </resources>
