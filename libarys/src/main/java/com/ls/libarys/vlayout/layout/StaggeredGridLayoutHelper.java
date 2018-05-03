@@ -41,7 +41,7 @@ import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
 
-import com.ls.libarys.vlayout.BuildConfig;
+import com.ls.libarys.BuildConfig;
 import com.ls.libarys.vlayout.LayoutHelper;
 import com.ls.libarys.vlayout.LayoutManagerHelper;
 import com.ls.libarys.vlayout.OrientationHelperEx;
