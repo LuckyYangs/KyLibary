@@ -202,12 +202,12 @@ public class GridLayoutHelper extends BaseLayoutHelper {
     }
 
     public void setVGap(int vGap) {
-        if (vGap < 0) vGap = 0;
+        if (vGap < 0) {vGap = 0;}
         this.mVGap = vGap;
     }
 
     public void setHGap(int hGap) {
-        if (hGap < 0) hGap = 0;
+        if (hGap < 0){ hGap = 0;}
         this.mHGap = hGap;
     }
 
