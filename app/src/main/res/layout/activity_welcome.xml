@@ -4,22 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_monkey"
+
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context="com.ls.kylibary.WelcomeActivity">
-    <!--<android.support.v7.widget.CardView-->
-    <!--android:id="@+id/cardview_1"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_margin="@dimen/dp_40"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:colorControlHighlight="@color/material_blue"-->
-    <!--&gt;-->
     <ImageView
-        android:id="@+id/qd"
-        android:alpha="0.3"
+        android:id="@+id/sc"
+        android:background="@drawable/bg_monkey"
         android:layout_width="match_parent"
-        android:background="@mipmap/bg"
         android:layout_height="match_parent" />
-    <!--</android.support.v7.widget.CardView>-->
 </LinearLayout>

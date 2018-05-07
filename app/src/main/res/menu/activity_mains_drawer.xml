@@ -7,18 +7,18 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@mipmap/carome"
-            android:title="照片视频选择" />
+            android:title="文件选择" />
         <item
             android:id="@+id/nav_refresh"
             android:icon="@mipmap/sxjz"
             android:title="刷新加载" />
         <item
             android:id="@+id/nav_banner"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@mipmap/lb"
             android:title="轮播图" />
         <item
             android:id="@+id/nav_tool"
-            android:icon="@mipmap/lb"
+            android:icon="@mipmap/gjx"
             android:title="工具类" />
     </group>
     <group
@@ -33,7 +33,7 @@
             <item
                 android:id="@+id/nav_tbc"
                 android:iconTint="@color/colorAccent"
-                android:icon="@mipmap/ab"
+                android:icon="@mipmap/af"
                 android:title="黑色" />
             <item
                 android:id="@+id/nav_tby"
@@ -46,7 +46,7 @@
         <item
             android:id="@+id/nav_about"
             android:iconTint="@color/colorAccent"
-            android:icon="@mipmap/zfj"
+            android:icon="@mipmap/icon_like"
             android:title="关于框架"/>
     </group>
 </menu>
