@@ -15,5 +15,11 @@
         app:indicator_margin="4dp"
         app:indicator_width="20dp"
         app:title_height="30dp"/>
+    <TextView
+        android:layout_margin="@dimen/kj_space_20"
+        android:id="@+id/tv_desc"
+        android:text="这个界面使用了BannerView和BottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </FrameLayout>

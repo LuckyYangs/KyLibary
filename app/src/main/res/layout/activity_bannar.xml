@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context="com.ls.kylibary.banner.BannarActivity">
 
@@ -17,14 +18,17 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"/>
-
+<View
+    android:layout_width="match_parent"
+    android:background="@color/linecolor"
+    android:layout_height="@dimen/kj_space_1"/>
     <com.ls.libarys.bottombar.BottomNavigationBar
         android:id="@+id/bottom_navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:bnbActiveColor="@color/white"
-        app:bnbBackgroundColor="@color/colorPrimary"
+        app:bnbActiveColor="@color/colorPrimary"
+        app:bnbBackgroundColor="@color/white"
         app:bnbBackgroundStyle="background_style_static"
     />
 

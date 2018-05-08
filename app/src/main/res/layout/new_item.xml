@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id="@+id/ll_new"
+    android:layout_marginLeft="@dimen/kj_space_10"
+    android:layout_marginRight="@dimen/kj_space_10"
+    android:background="@color/white"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/iv_new"
+        android:layout_width="120dp"
+        android:text="店铺推荐"
+        android:src="@mipmap/touxiang"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/kj_space_10"
+        android:layout_height="match_parent">
+    <TextView
+
+        android:id="@+id/tv_newt"
+        android:layout_marginTop="@dimen/kj_space_5"
+        android:layout_width="match_parent"
+        android:text="我是标题我是标题我是标题"
+        android:textSize="@dimen/text_size_14"
+        android:textColor="#1F201C"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/tv_newc"
+        android:layout_marginTop="@dimen/kj_space_5"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/kj_space_1"
+        android:layout_gravity="bottom"
+        android:gravity="center|left"
+        android:text="查看更多哈哈哈哈嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻xixixix"
+        android:textSize="@dimen/text_size_12"
+        android:ellipsize="end"
+        android:maxEms="18"
+        android:maxLines="3"
+        android:layout_height="match_parent"
+        />
+    </LinearLayout>
+</LinearLayout>

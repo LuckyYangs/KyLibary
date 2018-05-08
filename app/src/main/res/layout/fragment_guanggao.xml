@@ -8,9 +8,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/banner3"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="150dp"
         app:title_background="#555CB85C"
         app:title_textsize="10sp"
         app:title_textcolor="@android:color/white"
         app:title_height="30dp"/>
+    <TextView
+        android:layout_margin="@dimen/kj_space_20"
+        android:id="@+id/tv_desc"
+        android:text="这个界面使用了BannerView和BottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </FrameLayout>

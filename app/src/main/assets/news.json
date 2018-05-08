@@ -1,0 +1,42 @@
+{
+    "code": 200,
+    "msg": "ok",
+    "news": [
+        {
+            "title": "空降美国的孩子",
+            "content": "在压力和青春期的情绪波动之中，他们经历着不一样的高中岁月。",
+            "imageUrl": "http://img1.gtimg.com/ninja/2/2018/02/ninja151798030871223.jpg"
+           
+        },
+        {
+            "title": "中国人的一天",
+            "content": "男子独守羌王府,村庄成景区，靠景点旅游收入，养活全村孤寡老人",
+            "imageUrl": "http://img1.gtimg.com/news/pics/hv1/119/227/2274/147924854.jpg"
+
+        },
+        {
+            "title": "霍金的三次中国之行",
+            "content": "霍金与中国的缘分不浅，他曾3次来华。",
+            "imageUrl": "http://img1.gtimg.com/ninja/1/2018/03/ninja152102147694339.jpg"
+
+        },
+        {
+            "title": "一位英国人留给贵州苗族的遗产",
+            "content": "从原始苗寨到 “ 文化圣地 ” ，石门坎所经历的一切，全因一位外国人的到来和时代巨变。",
+            "imageUrl": "http://img1.gtimg.com/ninja/1/2018/03/ninja152161950735699.jpg"
+
+        },
+        {
+            "title": "中国女摄影师镜头下的叙利亚",
+            "content": "人间若有天堂，大马士革必在其中。",
+            "imageUrl": "http://img1.gtimg.com/ninja/1/2018/04/ninja152414932060578.jpg"
+
+        },
+        {
+            "title": "震后十年，田埂上那姑娘从未跑远",
+            "content": "后来我去了大学，她留在了地震博物馆",
+            "imageUrl": "http://img1.gtimg.com/news/pics/hv1/174/161/2274/147908079.jpg"
+
+        }
+    ]
+}

@@ -12,16 +12,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.ls.kylibary.R;
-import com.ls.kylibary.banner.BannarActivity;
-import com.ls.kylibary.banner.GlideImageLoader;
-import com.ls.kylibary.resfresh.ResFreshActivity;
-import com.ls.libarys.banner.Banner;
-import com.ls.libarys.banner.Transformer;
-import com.ls.libarys.banner.listener.OnBannerListener;
-import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.ToastUtil;
 import com.ls.libarys.vlayout.DelegateAdapter;
 import com.ls.libarys.vlayout.LayoutHelper;
+import com.ls.libarys.vlayout.VirtualLayoutManager;
+import com.ls.libarys.vlayout.VirtualLayoutManager.LayoutParams;
 
 import java.util.List;
 
@@ -58,13 +53,13 @@ import java.util.List;
  */
 
 
-public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder>  {
+public class DpStragAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder>  {
 
     private Context mContext;
     private LayoutHelper mHelper;
     private List<IconEntity> mData;
 
-    public GridAdapter(Context mContext, LayoutHelper mHelper, List<IconEntity> mData) {
+    public DpStragAdapter(Context mContext, LayoutHelper mHelper, List<IconEntity> mData) {
         this.mContext = mContext;
         this.mHelper = mHelper;
         this.mData = mData;
@@ -77,16 +72,23 @@ public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dp_item, parent, false);
         return new RecyclerViewItemHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200);
+        if (position % 2 == 0) {
+            layoutParams.mAspectRatio = 1.0f;
+        } else {
+            layoutParams.height = 340 + position % 7 * 20;
+        }
+        holder.itemView.setLayoutParams(layoutParams);
         RecyclerViewItemHolder recyclerViewHolder = (RecyclerViewItemHolder) holder;
-        recyclerViewHolder.tv_name.setText(mData.get(position).getTitle());
-        Glide.with(mContext).load(mData.get(position).getImageUrl()).placeholder(R.mipmap.sxjz).skipMemoryCache(false).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(recyclerViewHolder.iv_title);
-        recyclerViewHolder.gd_itme.setOnClickListener(new View.OnClickListener() {
+        recyclerViewHolder.tv_dpdes.setText(mData.get(position).getTitle());
+        Glide.with(mContext).load(mData.get(position).getImageUrl()).placeholder(R.mipmap.sxjz).skipMemoryCache(false).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(recyclerViewHolder.iv_dp);
+        recyclerViewHolder.ll_dp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (position) {
@@ -100,13 +102,13 @@ public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder
                         ToastUtil.show(mContext,"敬请期待");
                         break;
                     case 3:
-                        ActivityUtil.startAty(mContext, BannarActivity.class);
+                        ToastUtil.show(mContext,"敬请期待");
                         break;
                     case 4:
-                        ActivityUtil.startAty(mContext, BannarActivity.class);
+                        ToastUtil.show(mContext,"敬请期待");
                         break;
                     case 5:
-                        ActivityUtil.startAty(mContext, ResFreshActivity.class);
+                        ToastUtil.show(mContext,"敬请期待");
                         break;
                     case 6:
                         ToastUtil.show(mContext,"敬请期待");
@@ -133,15 +135,15 @@ public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder
      */
     private class RecyclerViewItemHolder extends RecyclerView.ViewHolder {
 
-        public TextView tv_name;
-        private ImageView iv_title;
-        private LinearLayout gd_itme;
+        public TextView tv_dpdes;
+        private ImageView iv_dp;
+        LinearLayout ll_dp;
 
         public RecyclerViewItemHolder(View itemView) {
             super(itemView);
-            tv_name = itemView.findViewById(R.id.tv_title);
-            iv_title = itemView.findViewById(R.id.iv_ic);
-            gd_itme = itemView.findViewById(R.id.gd_itme);
+            tv_dpdes = itemView.findViewById(R.id.tv_dpdes);
+            iv_dp = itemView.findViewById(R.id.in_dp);
+            ll_dp= itemView.findViewById(R.id.ll_dp);
         }
     }
 }

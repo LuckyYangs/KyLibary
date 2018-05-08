@@ -40,7 +40,16 @@ public class IconEntity {
      */
 
     private String title;
+    private String content;
     private String imageUrl;
+
+    public String getContent() {
+        return content == null ? "" : content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public String getTitle() {
         return title == null ? "" : title;

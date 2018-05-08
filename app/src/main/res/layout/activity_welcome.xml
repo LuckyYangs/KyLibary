@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context="com.ls.kylibary.WelcomeActivity">
     <ImageView
         android:id="@+id/sc"
-        android:background="@drawable/bg_monkey"
+        android:background="@mipmap/wel"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

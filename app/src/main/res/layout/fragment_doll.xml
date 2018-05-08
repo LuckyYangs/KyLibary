@@ -10,10 +10,16 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/banner1"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="150dp"
         app:indicator_drawable_selected="@drawable/selected_radius"
         app:indicator_drawable_unselected="@drawable/unselected_radius"
         app:indicator_height="8dp"
         app:indicator_margin="4dp"
         app:indicator_width="8dp" />
+    <TextView
+        android:layout_margin="@dimen/kj_space_20"
+        android:id="@+id/tv_desc"
+        android:text="这个界面使用了BannerView和BottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

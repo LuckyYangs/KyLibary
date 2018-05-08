@@ -2,9 +2,11 @@ package com.ls.kylibary;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -29,16 +31,23 @@ import com.ls.kylibary.banner.BannarActivity;
 import com.ls.kylibary.resfresh.ResFreshActivity;
 import com.ls.kylibary.vlayout.BannerAdapter;
 import com.ls.kylibary.vlayout.Common;
+import com.ls.kylibary.vlayout.DpGridAdapter;
+import com.ls.kylibary.vlayout.DpStragAdapter;
+import com.ls.kylibary.vlayout.GnewAdapter;
 import com.ls.kylibary.vlayout.GridAdapter;
+import com.ls.kylibary.vlayout.GussAdapter;
 import com.ls.kylibary.vlayout.IconEntity;
 import com.ls.kylibary.vlayout.LinearAdapter;
 import com.ls.kylibary.vlayout.MarqueeAdapter;
+import com.ls.kylibary.vlayout.NewAdapter;
+import com.ls.kylibary.vlayout.OnGridAdapter;
 import com.ls.libarys.baseadapter.BaseQuickAdapter;
 import com.ls.libarys.logger.AndroidLogAdapter;
 import com.ls.libarys.logger.DiskLogAdapter;
 import com.ls.libarys.logger.FormatStrategy;
 import com.ls.libarys.logger.Logger;
 import com.ls.libarys.logger.PrettyFormatStrategy;
+import com.ls.libarys.recyclerviewitemDecoration.ListDecoration;
 import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.DrawerLeftEdgeSize;
 import com.ls.libarys.utils.StatusBarUtil;
@@ -46,6 +55,8 @@ import com.ls.libarys.vlayout.DelegateAdapter;
 import com.ls.libarys.vlayout.VirtualLayoutManager;
 import com.ls.libarys.vlayout.layout.GridLayoutHelper;
 import com.ls.libarys.vlayout.layout.LinearLayoutHelper;
+import com.ls.libarys.vlayout.layout.OnePlusNLayoutHelper;
+import com.ls.libarys.vlayout.layout.StaggeredGridLayoutHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -104,13 +115,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public  List<String> images=new ArrayList<>();
 
     private List<IconEntity> iconlist=new ArrayList<>();
+    private List<IconEntity> dplist=new ArrayList<>();
+    private List<IconEntity> newlist=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mains);
-
         log();
-
         mStatusBarColor = ContextCompat.getColor(this,R.color.colorPrimary);
         StatusBarUtil.setColorForDrawerLayout(this, (DrawerLayout) findViewById(R.id.drawer_layout), mStatusBarColor, mAlpha);
         initView();
@@ -197,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ll_main=findViewById(R.id.ll_main);
         Toolbar toolbar = findViewById(R.id.toolbara);
         tilte = findViewById(R.id.title);
-        tilte.setText("KyLibrary");
+        tilte.setText("复杂UI布局");
         toolbar.setNavigationIcon(R.mipmap.caidan);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -205,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView =findViewById(R.id.rv_list);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        DrawerLeftEdgeSize.setLeftEdgeSize(this,drawer,0.4f);
+        DrawerLeftEdgeSize.setLeftEdgeSize(this,drawer,0.1f);
 
 //设置屏幕跟随滑动
         drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
@@ -268,22 +279,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         RecyclerView.RecycledViewPool recycledViewPool =new RecyclerView.RecycledViewPool();
         recycledViewPool.setMaxRecycledViews(0,20);
         mRecyclerView.setRecycledViewPool(recycledViewPool);
-//设置RecyclerView分割线
-        RecyclerView.ItemDecoration itemDecoration = new RecyclerView.ItemDecoration() {
+//设置RecyclerView分割线,Item之间的间隔
+
+
+        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                int position = ((VirtualLayoutManager.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
-                outRect.set(4, 4, 4, 4);
+                outRect.set(5, 5, 5, 5);
             }
-        };
+        });
 
         delegateAdapter = new DelegateAdapter(layoutManager, true);
 
         mRecyclerView.setAdapter(delegateAdapter);
         adapters = new LinkedList<>();
-//添加bannar布局
+//添加bannar布局----------------------------------------
         LinearLayoutHelper bHelper = new LinearLayoutHelper(1);
         delegateAdapter.addAdapter(new BannerAdapter(this, bHelper,images));
+
+//添加分类布局---------------------------------------------------
 
         geticon();
 
@@ -295,26 +309,150 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         gridHelper.setVGap(5);
         //设置水平方向条目的间隔
         gridHelper.setHGap(5);
-        gridHelper.setMarginLeft(20);
+//        gridHelper.setMarginLeft(30);
+//        gridHelper.setMarginRight(30);
         gridHelper.setMarginBottom(20);
+        gridHelper.setBgColor(ContextCompat.getColor(this,R.color.white));
         //自动填充满布局，在设置完权重，若没有占满，自动填充满布局
         gridHelper.setAutoExpand(true);
         delegateAdapter.addAdapter(new GridAdapter(this, gridHelper,iconlist));
 
-        ////添加格兰布局
+        ////添加广告格兰布局------------------------------------------------
 
         List<String> info2 = new ArrayList<>();
         info2.add("这个是用来搞笑的，不要在意这写小细节！");
         info2.add("啦啦啦啦，我就是来搞笑的！");
 
         LinearLayoutHelper linearHelpers = new LinearLayoutHelper(1);
+//        linearHelpers.setMarginLeft(30);
+//        linearHelpers.setMarginRight(30);
+        linearHelpers.setBgColor(ContextCompat.getColor(this,R.color.white));
         delegateAdapter.addAdapter(new MarqueeAdapter(this, linearHelpers,info2));
 
-        ////添加Linear 布局
-        LinearLayoutHelper linearHelper = new LinearLayoutHelper(1);
-        delegateAdapter.addAdapter(new LinearAdapter(this, linearHelper,titles));
+        ////添加一拖N布局------------------------------------------------
+        OnePlusNLayoutHelper helper = new OnePlusNLayoutHelper(4);
+        helper.setBgColor(ContextCompat.getColor(this,R.color.white));
+        helper.setMargin(10, 10, 10,10);
+//        helper.setPadding(10, 10, 10,10);
+        delegateAdapter.addAdapter(new OnGridAdapter(this, helper,iconlist));
 
 
+      //添加店铺推荐格兰布局------------------------------------------------------
+
+        LinearLayoutHelper dplinearHelpers = new LinearLayoutHelper(1);
+        dplinearHelpers.setDividerHeight(10);
+        dplinearHelpers.setMarginLeft(10);
+        dplinearHelpers.setMarginRight(10);
+        dplinearHelpers.setMarginTop(20);
+        dplinearHelpers.setBgColor(ContextCompat.getColor(this,R.color.white));
+        delegateAdapter.addAdapter(new GussAdapter(this, dplinearHelpers));
+//添加推荐店铺布局--------------------------------------------------------------------
+        gedp();
+        GridLayoutHelper dpgridHelper = new GridLayoutHelper(2);
+//
+        dpgridHelper.setWeights(new float[]{50.0f,50.0f});
+        //设置垂直方向条目的间隔
+        dpgridHelper.setVGap(30);
+        //设置水平方向条目的间隔
+        dpgridHelper.setHGap(30);
+        dpgridHelper.setMarginLeft(10);
+        dpgridHelper.setMarginRight(10);
+//        dpgridHelper.setMarginBottom(20);
+        dpgridHelper.setBgColor(ContextCompat.getColor(this,R.color.white));
+        //自动填充满布局，在设置完权重，若没有占满，自动填充满布局
+        dpgridHelper.setAutoExpand(true);
+        delegateAdapter.addAdapter(new DpGridAdapter(this, dpgridHelper,dplist));
+
+
+        //添加热点新闻格兰布局----------------------------------------------
+        LinearLayoutHelper newlinearHelpers = new LinearLayoutHelper(1);
+        newlinearHelpers.setDividerHeight(10);
+//        newlinearHelpers.setMarginLeft(30);
+//        newlinearHelpers.setMarginRight(30);
+        newlinearHelpers.setMarginTop(30);
+        newlinearHelpers.setBgColor(ContextCompat.getColor(this,R.color.white));
+        delegateAdapter.addAdapter(new GnewAdapter(this, newlinearHelpers));
+        ////添加新闻Linear 布局----------------------------------------------
+        getnew();
+        LinearLayoutHelper newlinearHelper = new LinearLayoutHelper(1);
+//        newlinearHelper.setMarginRight(30);
+//        newlinearHelper.setMarginLeft(30);
+        newlinearHelper.setMarginTop(15);
+        newlinearHelper.setDividerHeight(10);
+        newlinearHelper.setBgColor(ContextCompat.getColor(this,R.color.white));
+        delegateAdapter.addAdapter(new NewAdapter(this, newlinearHelper,newlist));
+
+        /**
+         设置瀑布流布局////添加瀑布流布局--------------------------------------------------------
+         */
+
+        StaggeredGridLayoutHelper staggeredGridLayoutHelper = new StaggeredGridLayoutHelper();
+        // 创建对象
+
+        // 公有属性
+        staggeredGridLayoutHelper.setItemCount(20);// 设置布局里Item个数
+//        staggeredGridLayoutHelper.setPadding(10, 10, 10, 10);// 设置LayoutHelper的子元素相对LayoutHelper边缘的距离
+        staggeredGridLayoutHelper.setMargin(20, 20, 20, 20);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
+        staggeredGridLayoutHelper.setBgColor(Color.WHITE);// 设置背景颜色
+        staggeredGridLayoutHelper.setAspectRatio(3);// 设置设置布局内每行布局的宽与高的比
+
+        // 特有属性
+        staggeredGridLayoutHelper.setLane(2);// 设置控制瀑布流每行的Item数
+        staggeredGridLayoutHelper.setHGap(10);// 设置子元素之间的水平间距
+        staggeredGridLayoutHelper.setVGap(10);// 设置子元素之间的垂直间距
+        delegateAdapter.addAdapter(new DpStragAdapter(this, staggeredGridLayoutHelper,dplist));
+
+
+    }
+
+    private void getnew() {
+        StringBuilder newstringBuilder = new StringBuilder();
+        InputStream inputStream = null;
+        try {
+            inputStream = getResources().getAssets().open("news.json");
+            InputStreamReader isr = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(isr);
+            String jsonLine;
+            while ((jsonLine = reader.readLine()) != null) {
+                newstringBuilder.append(jsonLine);
+            }
+            reader.close();
+            isr.close();
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String result =  newstringBuilder .toString();
+        Log.d("json",result);
+        Gson gson = new Gson();
+        Common common = gson.fromJson(result, Common.class);
+        newlist=common.getNews();
+    }
+
+    private void gedp() {
+        StringBuilder dpstringBuilder = new StringBuilder();
+        InputStream inputStream = null;
+        try {
+            inputStream = getResources().getAssets().open("shop.json");
+            InputStreamReader isr = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(isr);
+            String jsonLine;
+            while ((jsonLine = reader.readLine()) != null) {
+                dpstringBuilder.append(jsonLine);
+            }
+            reader.close();
+            isr.close();
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String result =  dpstringBuilder .toString();
+        Log.d("json",result);
+        Gson gson = new Gson();
+        Common common = gson.fromJson(result, Common.class);
+        dplist=common.getShop();
     }
 
     @Override

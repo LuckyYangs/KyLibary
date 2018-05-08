@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,11 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.ls.kylibary.R;
 import com.ls.kylibary.banner.BannarActivity;
-import com.ls.kylibary.banner.GlideImageLoader;
 import com.ls.kylibary.resfresh.ResFreshActivity;
-import com.ls.libarys.banner.Banner;
-import com.ls.libarys.banner.Transformer;
-import com.ls.libarys.banner.listener.OnBannerListener;
 import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.ToastUtil;
 import com.ls.libarys.vlayout.DelegateAdapter;
@@ -58,13 +55,13 @@ import java.util.List;
  */
 
 
-public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder>  {
+public class OnGridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder>  {
 
     private Context mContext;
     private LayoutHelper mHelper;
     private List<IconEntity> mData;
 
-    public GridAdapter(Context mContext, LayoutHelper mHelper, List<IconEntity> mData) {
+    public OnGridAdapter(Context mContext, LayoutHelper mHelper, List<IconEntity> mData) {
         this.mContext = mContext;
         this.mHelper = mHelper;
         this.mData = mData;
@@ -77,14 +74,14 @@ public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.on_item, parent, false);
         return new RecyclerViewItemHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         RecyclerViewItemHolder recyclerViewHolder = (RecyclerViewItemHolder) holder;
-        recyclerViewHolder.tv_name.setText(mData.get(position).getTitle());
+        recyclerViewHolder.tv_on.setText(mData.get(position).getTitle());
         Glide.with(mContext).load(mData.get(position).getImageUrl()).placeholder(R.mipmap.sxjz).skipMemoryCache(false).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(recyclerViewHolder.iv_title);
         recyclerViewHolder.gd_itme.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,18 +99,6 @@ public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder
                     case 3:
                         ActivityUtil.startAty(mContext, BannarActivity.class);
                         break;
-                    case 4:
-                        ActivityUtil.startAty(mContext, BannarActivity.class);
-                        break;
-                    case 5:
-                        ActivityUtil.startAty(mContext, ResFreshActivity.class);
-                        break;
-                    case 6:
-                        ToastUtil.show(mContext,"敬请期待");
-                        break;
-                    case 7:
-                        ToastUtil.show(mContext,"敬请期待");
-                        break;
                     default:
                         break;
                 }
@@ -123,7 +108,7 @@ public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return 4;
     }
 
 
@@ -133,15 +118,15 @@ public class GridAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder
      */
     private class RecyclerViewItemHolder extends RecyclerView.ViewHolder {
 
-        public TextView tv_name;
         private ImageView iv_title;
-        private LinearLayout gd_itme;
+        private FrameLayout gd_itme;
+        private TextView tv_on;
 
         public RecyclerViewItemHolder(View itemView) {
             super(itemView);
-            tv_name = itemView.findViewById(R.id.tv_title);
-            iv_title = itemView.findViewById(R.id.iv_ic);
-            gd_itme = itemView.findViewById(R.id.gd_itme);
+            iv_title = itemView.findViewById(R.id.iv_otn);
+            gd_itme = itemView.findViewById(R.id.ont_itme);
+            tv_on = itemView.findViewById(R.id.tv_on);
         }
     }
 }
