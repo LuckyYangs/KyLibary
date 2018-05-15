@@ -3,25 +3,26 @@ package com.ls.kylibary.banner;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
 
 import com.ls.kylibary.BaseActivity;
-import com.ls.kylibary.MainActivity;
+import com.ls.kylibary.custview.UtilsFragment;
+import com.ls.kylibary.main.MainActivity;
 import com.ls.kylibary.R;
+import com.ls.kylibary.custview.CustViewFragment;
 import com.ls.libarys.bottombar.BottomNavigationBar;
 import com.ls.libarys.bottombar.BottomNavigationItem;
 import com.ls.libarys.utils.ActivityUtil;
+import com.ls.libarys.utils.StringsUtil;
 
 import java.util.ArrayList;
 
 public class BannarActivity extends BaseActivity {
-    private TextView tilte;
+
     private ViewPager mVpHome;
     private BottomNavigationBar mBottomNavigationBar;
     private ArrayList<Fragment> mFragmentList = new ArrayList<>();
-    Toolbar toolbar;
+    private String type;
     @Override
     protected void setContentView() {
         setContentView(R.layout.activity_bannar);
@@ -29,29 +30,20 @@ public class BannarActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        toolbar =findViewById(R.id.toolbara);
-        tilte = findViewById(R.id.title);
-        tilte.setText("BannerView");
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActivityUtil.startAty(getApplicationContext(),MainActivity.class);
-                finish();
-            }
-        });
+        type=getIntent().getStringExtra("type");
+
 
         mVpHome =  findViewById(R.id.vp_home);
         mBottomNavigationBar =  findViewById(R.id.bottom_navigation_bar);
 //        mBottomNavigationBar.setBackgroundColor(R.color.colorPrimary); 设置背景颜色
         mBottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
-        mFragmentList.add(new DollFragment());
-        mFragmentList.add(new JuxingFragment());
-        mFragmentList.add(new GuanggaoFragment());
-        mBottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.ab, "圆点"))
-                .addItem(new BottomNavigationItem(R.mipmap.app, "长条"))
-                .addItem(new BottomNavigationItem(R.mipmap.zfj, "广告"))
+        mFragmentList.add(new BannerFragment());
+        mFragmentList.add(new CustViewFragment());
+        mFragmentList.add(new UtilsFragment());
+        mBottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.ab, "Banner"))
+                .addItem(new BottomNavigationItem(R.mipmap.app, "CustView"))
+                .addItem(new BottomNavigationItem(R.mipmap.zfj, "Utils"))
                 .initialise();
-
         mBottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position) {
@@ -60,7 +52,6 @@ public class BannarActivity extends BaseActivity {
 
             @Override
             public void onTabUnselected(int position) {
-
             }
 
             @Override
@@ -95,6 +86,17 @@ public class BannarActivity extends BaseActivity {
                 return mFragmentList.size();
             }
         });
+        setcurrent();
+    }
+
+    private void setcurrent() {
+
+       if (StringsUtil.equals(type,"custview")) {
+           mVpHome.setCurrentItem(1);
+       }else if (StringsUtil.equals(type,"utils")){
+           mVpHome.setCurrentItem(2);
+       }
+
 
     }
 

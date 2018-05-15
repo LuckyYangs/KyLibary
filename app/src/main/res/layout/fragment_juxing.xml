@@ -1,25 +1,50 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ls.kylibary.banner.JuxingFragment">
-
-    <com.ls.libarys.banner.Banner
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/banner2"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.ls.kylibary.custview.CustViewFragment">
+    <include layout="@layout/common_title"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        app:indicator_drawable_selected="@color/material_blue"
-        app:indicator_drawable_unselected="@android:color/white"
-        app:indicator_height="4dp"
-        app:indicator_margin="4dp"
-        app:indicator_width="20dp"
-        app:title_height="30dp"/>
-    <TextView
-        android:layout_margin="@dimen/kj_space_20"
-        android:id="@+id/tv_desc"
-        android:text="这个界面使用了BannerView和BottomBar"
+        android:layout_height="wrap_content"/>
+    <com.ls.libarys.slidemenu.SlidingTabLayout
+        android:id="@+id/tl_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="48dp"
+        android:background="#EC7263"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        tl:tl_indicator_color="#F6CE59"
+        tl:tl_indicator_corner_radius="5dp"
+        tl:tl_indicator_margin_left="2dp"
+        tl:tl_indicator_margin_right="2dp"
+        tl:tl_indicator_style="BLOCK"/>
+    <com.ls.libarys.slidemenu.SlidingTabLayout
+        android:id="@+id/tl_4"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#57385C"
+        tl:tl_indicator_corner_radius="1.5dp"
+        tl:tl_indicator_height="3dp"
+        tl:tl_indicator_width="10dp"/>
+    <com.ls.libarys.slidemenu.SlidingTabLayout
+        android:id="@+id/tl_3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#009688"
+        tl:tl_textsize="15sp"/>
+    <com.ls.libarys.slidemenu.SlidingTabLayout
+        android:id="@+id/tl_2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#E45171"
+        tl:tl_indicator_color="#eeeeee"
+        tl:tl_indicator_style="TRIANGLE"/>
 
-</FrameLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

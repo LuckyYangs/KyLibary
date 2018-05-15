@@ -1,10 +1,6 @@
 package com.ls.kylibary.resfresh;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.os.Bundle;
-import android.transition.Explode;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;

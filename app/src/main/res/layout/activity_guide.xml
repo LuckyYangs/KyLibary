@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ls.kylibary.main.GuideActivity">
+<com.ls.libarys.banner.Banner
+    android:id="@+id/ba_guide"
+    android:layout_width="match_parent"
+    app:indicator_drawable_selected="@drawable/point_focused_big"
+    app:indicator_drawable_unselected="@drawable/point_unfocused_small"
+    app:indicator_height="12dp"
+    app:indicator_margin="4dp"
+    android:scrollIndicators="bottom"
+    app:is_auto_play="false"
+    app:indicator_width="12dp"
+    android:layout_height="match_parent"/>
+    <Button
+        android:id="@+id/bt_gomain"
+        android:background="@drawable/btn_bm"
+        android:text="立即体验"
+        android:textColor="@color/white"
+        android:layout_marginBottom="50dp"
+        android:visibility="gone"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--android:background="@drawable/btn_bm"-->
+</FrameLayout>

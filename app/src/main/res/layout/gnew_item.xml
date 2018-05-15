@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_marginRight="@dimen/kj_space_10"
-    android:layout_marginLeft="@dimen/kj_space_10"
-    android:background="@color/white" android:layout_height="wrap_content">
+    android:layout_margin="@dimen/kj_space_10"
+    android:layout_marginBottom="@dimen/kj_space_20"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -28,12 +30,7 @@
         android:drawablePadding="@dimen/kj_space_5"
         android:gravity="center_vertical"
         android:drawableRight="@mipmap/rig"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
     </LinearLayout>
-    <View
-        android:layout_marginTop="@dimen/kj_space_5"
-        android:layout_width="match_parent"
-        android:background="@color/colorDivision"
-        android:layout_height="@dimen/kj_space_1"/>
+
 </LinearLayout>

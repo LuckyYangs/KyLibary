@@ -30,7 +30,7 @@
         <activity android:name=".resfresh.BalloonActivity" />
         <activity android:name=".banner.BannarActivity" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".main.WelcomeActivity"
             android:theme="@style/AppSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,11 +39,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:label="@string/title_activity_main"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme" />
-        <activity android:name=".vlayout.MoreUiActivity" />
+        <activity android:name=".main.GuideActivity" />
+        <activity android:name=".main.ToutiaoActivity" />
     </application>
 
 </manifest>

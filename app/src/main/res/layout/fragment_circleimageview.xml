@@ -1,0 +1,38 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ls.kylibary.custview.CircleImageViewFragment">
+
+   <com.ls.libarys.view.CircleImageView
+       android:id="@+id/circleImageView1"
+       android:layout_gravity="center|top"
+       app:civ_border_color="@color/colorAccent"
+       app:civ_border_width="@dimen/kj_space_2"
+       android:src="@drawable/tx"
+       android:layout_marginTop="@dimen/kj_space_60"
+       android:layout_width="@dimen/kj_space_60"
+       android:layout_height="@dimen/kj_space_60" />
+    <com.ls.libarys.view.CircleImageView
+        android:id="@+id/circleImageView2"
+        android:layout_gravity="center"
+        android:src="@drawable/txx"
+        app:civ_border_overlay="true"
+        app:civ_border_width="@dimen/kj_space_2"
+        app:civ_border_color="@color/material_yellow"
+        android:layout_marginBottom="@dimen/kj_space_30"
+        android:layout_width="@dimen/kj_space_100"
+        android:layout_height="@dimen/kj_space_100" />
+    <com.ls.libarys.view.CircleImageView
+        android:id="@+id/circleImageView3"
+        android:src="@drawable/ttx"
+        app:civ_border_overlay="true"
+        app:civ_border_color="@color/red"
+        app:civ_border_width="2dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="@dimen/kj_space_20"
+        android:layout_width="@dimen/kj_space_160"
+        android:layout_height="@dimen/kj_space_160" />
+
+</FrameLayout>

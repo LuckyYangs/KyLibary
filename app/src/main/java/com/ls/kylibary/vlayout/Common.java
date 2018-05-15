@@ -41,6 +41,30 @@ public class Common {
     private List<IconEntity>icon;
     private List<IconEntity>shop;
     private List<IconEntity>news;
+    private List<IconEntity>otn;
+    private List<IconEntity>util;
+
+    public List<IconEntity> getUtil() {
+        if (util == null) {
+            return new ArrayList<>();
+        }
+        return util;
+    }
+
+    public void setUtil(List<IconEntity> util) {
+        this.util = util;
+    }
+
+    public List<IconEntity> getOtn() {
+        if (otn == null) {
+            return new ArrayList<>();
+        }
+        return otn;
+    }
+
+    public void setOtn(List<IconEntity> otn) {
+        this.otn = otn;
+    }
 
     public List<IconEntity> getNews() {
         if (news == null) {

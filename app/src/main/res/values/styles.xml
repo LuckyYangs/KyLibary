@@ -2,6 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--<style name="AppTheme" parent="android:Theme.Material">-->
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -19,7 +20,7 @@
 
     <style name="AppSplash" parent="AppTheme">
 
-        <item name="android:windowBackground">@drawable/bg_monkey</item>
+        <item name="android:windowBackground">@drawable/wel</item>
 
         <item name="android:windowNoTitle">true</item>
 

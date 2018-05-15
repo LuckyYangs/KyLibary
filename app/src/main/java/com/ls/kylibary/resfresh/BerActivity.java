@@ -1,8 +1,6 @@
 package com.ls.kylibary.resfresh;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;

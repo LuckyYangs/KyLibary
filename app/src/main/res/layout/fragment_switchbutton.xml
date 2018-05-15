@@ -1,0 +1,37 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ls.kylibary.custview.SwitchButtonFragment">
+
+    <com.ls.libarys.view.SwitchButton
+        android:id="@+id/switchButton1"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/kj_space_50"
+        app:sb_button_color="@color/red"
+        app:sb_checked="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.ls.libarys.view.SwitchButton
+        android:id="@+id/switchButton2"
+        android:layout_gravity="center"
+        app:sb_button_color="@color/ygdl"
+        app:sb_checked="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.ls.libarys.view.SwitchButton
+        android:id="@+id/switchButton3"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/kj_space_50"
+        app:sb_button_color="@color/material_yellow"
+        app:sb_checked="true"
+        app:sb_shadow_color="@color/colorAccent"
+        app:sb_checkline_color="@color/lightblue"
+        app:sb_checkline_width="2dp"
+        app:sb_checked_color="@color/red"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>

@@ -7,6 +7,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.ls.kylibary.KyApplication;
+import com.ls.kylibary.R;
 import com.ls.libarys.utils.StatusBarUtil;
 
 
@@ -42,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView();
-        StatusBarUtil.setColor(this, ContextCompat.getColor(this,R.color.colorPrimary));
+        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary));
         KyApplication.getInstance().addActivity(this);
         initView();
         initData();

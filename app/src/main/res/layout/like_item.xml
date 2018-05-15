@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-android:layout_marginRight="@dimen/kj_space_10"
-    android:layout_marginLeft="@dimen/kj_space_10"
+    android:layout_margin="@dimen/kj_space_10"
     android:background="@color/white"
     >
     <LinearLayout
@@ -12,31 +11,27 @@ android:layout_marginRight="@dimen/kj_space_10"
         android:orientation="horizontal"
         android:layout_gravity="center_vertical"
         android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/biv"
-        android:layout_width="wrap_content"
-        android:text="店铺推荐"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size_16"
-        android:gravity="center_vertical"
-        android:textColor="#1F201C"
-        android:layout_height="match_parent"
-         />
-    <TextView
-        android:id="@+id/tv_more"
-        android:layout_width="wrap_content"
-        android:text="查看更多"
-        android:textColor="@color/red"
-        android:textSize="@dimen/text_size_12"
-        android:drawablePadding="@dimen/kj_space_5"
-        android:gravity="center_vertical"
-        android:drawableRight="@mipmap/rig"
-        android:layout_height="match_parent"
-        />
+        <TextView
+            android:id="@+id/biv"
+            android:layout_width="wrap_content"
+            android:text="店铺推荐"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_size_16"
+            android:gravity="center_vertical"
+            android:textColor="#1F201C"
+            android:layout_height="match_parent"
+            />
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:text="查看更多"
+            android:textColor="@color/red"
+            android:textSize="@dimen/text_size_12"
+            android:drawablePadding="@dimen/kj_space_5"
+            android:gravity="center_vertical"
+            android:drawableRight="@mipmap/rig"
+            android:layout_height="match_parent"
+            />
     </LinearLayout>
-    <View
-        android:layout_marginTop="@dimen/kj_space_5"
-        android:layout_width="match_parent"
-        android:background="@color/colorDivision"
-        android:layout_height="@dimen/kj_space_1"/>
+
 </LinearLayout>

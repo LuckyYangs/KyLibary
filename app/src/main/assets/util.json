@@ -1,0 +1,105 @@
+{
+    "code": 200,
+    "msg": "ok",
+    "util": [
+        {
+            "title": "ActivityUtil(acvity跳转工具类)",
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=ab7cda99f1faaf5184e381b7bc5594ed/3899dce636d12f2edc5fdcdf43c2d562843568a9.jpg"
+           
+        },
+        {
+            "title": "BigDecimalOperation(大数字精确计算工具类)",
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=65d54eaba718972ba33a00c2d6cc7b9d/974a0f95a4c27d1e67d8497b17d5ad6edcc4380d.jpg"
+        },
+        {
+            "title": "DppxUtils(DpPx互转工具类)",
+     
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=6d7d66b0b40e7bec23da03e91f2fb9fa/1af73ab6d0a20cf465d18c607a094b36adaf9946.jpg"
+    
+        },
+		  {
+            "title": "DrawerLeftEdgeSize(设置抽屉滑动距离工具类)",
+     
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c37a89949116fdfad86cc6e6848e8cea/fb7bf3ed54e736d14bbbfeb797504fc2d462695f.jpg"
+    
+        },
+		  {
+            "title": "GetBitmapDegree(获取图片翻转角度工具类)",
+     
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=39b3e74c75310a55c424defc87444387/9a464094d143ad4b1f963b7f8e025aafa50f064f.jpg"
+    
+        },
+		  {
+            "title": "GetvVersionUtil(获取版本工具类)",
+     
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=85c8dfad7e0e0cf3a0f74ef33a47f23d/e39980fb513d26974c747ae259fbb2fb4216d864.jpg"
+
+        },
+		  {
+            "title": "ListUtils(list非空判断工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+		  {
+            "title": "NetUtils(网络状态工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=ff8790a56c59252da3171d0c049a032c/4f865fcb7bcb0a46d461f9866763f6246a60af40.jpg"
+
+        },
+        {
+            "title": "NoQuikClick(防止快速点击工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+        {
+            "title": "PhoneIdCheckUtils(手机号身份证号验证工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+        {
+            "title": "SharedPreferencesUtil(SharedPreferences保存读取数据工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+        {
+            "title": "StatusBarUtil(状态栏工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+        {
+            "title": "StringReplaceUtil(字符串替换工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+        {
+            "title": "StringsUtil(字符串验证工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+        {
+            "title": "TimeUtil(验证码倒计时工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+        {
+            "title": "ToastUtil(Toast工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        },
+        {
+            "title": "SpanUtils(富文本工具类)",
+
+            "imageUrl": "https://imgsa.baidu.com/forum/w%3D580/sign=c7afcd0db5014a90813e46b599763971/b8982365034f78f02e8ee84c75310a55b2191c7a.jpg"
+
+        }
+    ]
+}

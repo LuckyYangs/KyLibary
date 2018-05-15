@@ -13,23 +13,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include
-        layout="@layout/common_title"
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout
-        android:id="@+id/rfyb"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"/>
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srlEnableScrollContentWhenLoaded="true"
-        app:srlPrimaryColor="@color/colorPrimary"
-        app:srlAccentColor="@android:color/white"
-        app:srlEnableFooterFollowWhenLoadFinished="true">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_list"
+        android:background="@color/linecolor"
+        android:layout_height="@dimen/kj_space_1"/>
+    <com.ls.libarys.bottombar.BottomNavigationBar
+        android:id="@+id/mainbottom_navigation_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    </com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout>
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="bottom"
+        app:bnbActiveColor="@color/colorPrimary"
+        app:bnbBackgroundColor="@color/white"
+        app:bnbBackgroundStyle="background_style_static"
+        />
 </LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

@@ -23,6 +23,7 @@
         android:text="查看更多哈哈哈哈嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻xixixix"
         android:textSize="@dimen/text_size_12"
         android:ellipsize="end"
+        android:textColor="@color/textgrey"
         android:maxEms="8"
         android:maxLines="2"
         android:layout_height="wrap_content"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/iv_serch"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:src="@mipmap/img_title_serch"
+    android:textSize="16dp"
+    android:scaleType="fitXY"
+    android:text="哈哈"
+    android:minHeight="40dp" />

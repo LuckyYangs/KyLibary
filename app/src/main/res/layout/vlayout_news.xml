@@ -2,16 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/kj_space_10"
+    android:layout_marginRight="@dimen/kj_space_10"
+    android:layout_height="60dp"
     android:gravity="center_vertical"
     android:background="@color/white"
     android:orientation="horizontal"
     >
 
     <ImageView
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_news" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@mipmap/tt" />
 
     <View
         android:layout_width="10dp"

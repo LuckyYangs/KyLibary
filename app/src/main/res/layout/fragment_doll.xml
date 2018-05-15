@@ -1,25 +1,62 @@
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ls.kylibary.banner.DollFragment">
+    tools:context="com.ls.kylibary.banner.BannerFragment">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <include layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <com.ls.libarys.banner.Banner
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/banner1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         app:indicator_drawable_selected="@drawable/selected_radius"
         app:indicator_drawable_unselected="@drawable/unselected_radius"
         app:indicator_height="8dp"
         app:indicator_margin="4dp"
         app:indicator_width="8dp" />
     <TextView
+        android:background="@color/nocolor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/kj_space_20" />
+    <com.ls.libarys.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner3"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:title_background="#555CB85C"
+        app:title_textsize="10sp"
+        app:title_textcolor="@android:color/white"
+        app:title_height="30dp"/>
+    <TextView
+        android:background="@color/nocolor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/kj_space_20" />
+    <com.ls.libarys.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner2"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:indicator_drawable_selected="@color/material_blue"
+        app:indicator_drawable_unselected="@android:color/white"
+        app:indicator_height="4dp"
+        app:indicator_margin="4dp"
+        app:indicator_width="20dp"
+        app:title_height="30dp"/>
+    <TextView
         android:layout_margin="@dimen/kj_space_20"
         android:id="@+id/tv_desc"
-        android:text="这个界面使用了BannerView和BottomBar"
+        android:textColor="@color/colorAccent"
+        android:text="这个界面使用了BannerView,可以设置不同指示器的形状,还可以添加广告文字！"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
+</ScrollView>
