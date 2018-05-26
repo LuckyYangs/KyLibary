@@ -30,8 +30,8 @@ public class WelcomeActivity extends Activity {
         isfirst= (boolean) SharedPreferencesUtil.getData(this,"user","isfirst",false);
         Log.i("isfirst", isfirst+"");
         cdvTime = findViewById(R.id.cdv_time);
-        ImageView sc=findViewById(R.id.sc);
-        cdvTime.setTime(3);
+//        ImageView sc=findViewById(R.id.sc);
+        cdvTime.setTime(2);
         cdvTime.start();
         cdvTime.setOnLoadingFinishListener(new CountDownView.OnLoadingFinishListener() {
             @Override

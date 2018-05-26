@@ -40,8 +40,17 @@ public class IconEntity {
      */
 
     private String title;
+    private String biaoti;
     private String content;
     private String imageUrl;
+
+    public String getBiaoti() {
+        return biaoti == null ? "" : biaoti;
+    }
+
+    public void setBiaoti(String biaoti) {
+        this.biaoti = biaoti;
+    }
 
     public String getContent() {
         return content == null ? "" : content;

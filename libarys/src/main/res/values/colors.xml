@@ -10,6 +10,7 @@
     <color name="textgrey">#B3B3B3</color>
     <color name="textmainblack">#262626</color>
     <color name="textsecondblack">#555555</color>
+    <color name="textblack">#030000</color>
     <color name="textsecongrey">#9A9A9A</color>
     <color name="linecolor">#E3E3E3</color>
     <color name="background">#FCFCFC</color>

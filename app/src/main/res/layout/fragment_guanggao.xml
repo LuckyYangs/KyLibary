@@ -5,9 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.ls.kylibary.custview.UtilsFragment">
-<include layout="@layout/common_title"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <include layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout
         android:id="@+id/util_refreshLayout"
         android:layout_width="match_parent"
@@ -30,7 +30,10 @@
             android:id="@+id/util_rvlist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
+        <com.ls.libarys.lsrefreshlayout.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlClassicsSpinnerStyle="Translate"/>
     </com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout>
 
 </LinearLayout>

@@ -3,8 +3,11 @@ package com.ls.kylibary.main;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -30,17 +34,23 @@ import com.ls.libarys.banner.listener.OnBannerListener;
 import com.ls.libarys.baseadapter.BaseViewHolder;
 import com.ls.libarys.logger.Logger;
 import com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout;
+import com.ls.libarys.lsrefreshlayout.layout.api.RefreshLayout;
+import com.ls.libarys.lsrefreshlayout.layout.listener.OnLoadMoreListener;
 import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.ToastUtil;
 import com.ls.libarys.view.MarqueeView;
 import com.ls.libarys.vlayout.BaseDelegateAdapter;
 import com.ls.libarys.vlayout.DelegateAdapter;
 import com.ls.libarys.vlayout.VirtualLayoutManager;
+import com.ls.libarys.vlayout.layout.FixAreaAdjuster;
 import com.ls.libarys.vlayout.layout.FixLayoutHelper;
 import com.ls.libarys.vlayout.layout.GridLayoutHelper;
 import com.ls.libarys.vlayout.layout.LinearLayoutHelper;
 import com.ls.libarys.vlayout.layout.OnePlusNLayoutHelper;
+import com.ls.libarys.vlayout.layout.ScrollFixLayoutHelper;
+import com.ls.libarys.vlayout.layout.SingleLayoutHelper;
 import com.ls.libarys.vlayout.layout.StaggeredGridLayoutHelper;
+import com.ls.libarys.vlayout.layout.StickyLayoutHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -51,18 +61,20 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.ls.libarys.vlayout.layout.FixLayoutHelper.TOP_LEFT;
+
 /**
 
-              .---.          .-----------
-             /  /   \  __  /    ------
-            / /  //  \(  )/    -----
-           //////    ' \/ `   ---
-          //// /     :    : ---
-         // /        `    '--
-        //           //..\\
-       =============UU====UU================
-                    '//||\\`
-                      ''``
+ .---.          .-----------
+ /  /   \  __  /    ------
+ / /  //  \(  )/    -----
+ //////    ' \/ `   ---
+ //// /     :    : ---
+ // /        `    '--
+ //           //..\\
+ =============UU====UU================
+ '//||\\`
+ ''``
  *  -----------------------------------------------
  * | 作  者：| AndroidBigGuy（QQ295803379）
  *  -----------------------------------------------
@@ -88,9 +100,14 @@ public class ShopFragment extends Fragment {
     public  List<String> images=new ArrayList<>();
     private List<IconEntity> iconlist=new ArrayList<>();
     private List<IconEntity> dplist=new ArrayList<>();
+    private List<IconEntity> sdplist=new ArrayList<>();
     private List<IconEntity> newlist=new ArrayList<>();
     private List<IconEntity> otnlist=new ArrayList<>();
     private List<String> info2 = new ArrayList<>();
+    BaseDelegateAdapter stragshopadapter;
+    BaseDelegateAdapter adapter_footer;
+    private boolean hasmore=true;
+    private Handler handler=new Handler();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view=View.inflate(getActivity(),R.layout.fragment_shop, null);
@@ -101,7 +118,59 @@ public class ShopFragment extends Fragment {
     private void initView() {
         mRecyclerView =view.findViewById(R.id.shop_rvlist);
         refreshLayout=view.findViewById(R.id.shop_refreshLayout);
-        refreshLayout.autoRefresh();
+//        refreshLayout.autoRefresh();
+//        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+//            @Override
+//            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+//                if(sdplist.size()<24){
+//                    for (int i=0;i<dplist.size();i++){
+//                        sdplist.add(dplist.get(i));
+//                    }
+//                     stragshopadapter.notifyDataSetChanged();
+//                    refreshLayout.finishLoadMore();
+//                }else {
+//                    refreshLayout.finishLoadMore();
+//                    refreshLayout.finishLoadMoreWithNoMoreData();
+//                    refreshLayout.setNoMoreData(true);
+//                }
+//            }
+//        });
+
+//        RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//            }
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                if(hasmore) {
+//                    VirtualLayoutManager lm = (VirtualLayoutManager)recyclerView.getLayoutManager();
+//                    int last=0, total=0;
+//                    last = lm.findLastVisibleItemPosition();
+//                    total = recyclerView.getAdapter().getItemCount();
+//                    if(last > 0 && last >= total  -1) {
+//                        hasmore=false;
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                if(sdplist.size()<24){
+//                                    for (int i=0;i<5;i++){
+//                                        sdplist.add(newlist.get(i));
+//                                    }
+//                                    hasmore = true;
+//                                    stragshopadapter.notifyDataSetChanged();
+//                                }else {
+//                                    hasmore = false;
+//                                    adapter_footer.notifyDataSetChanged();
+//                                }
+//
+//                            }
+//                        },1000);
+//
+//                    }
+//                }
+//            }
+//        };
+//        mRecyclerView .addOnScrollListener(onScrollListener);
     }
     private void initData() {
         String[] urls = getResources().getStringArray(R.array.url4);
@@ -115,9 +184,20 @@ public class ShopFragment extends Fragment {
 //初始化VirtualLayoutManager对象，与RecycleView绑定
         layoutManager = new VirtualLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
-//设置回收复用池大小，（如果一屏内相同类型的 View 个数比较多，需要设置一个合适的大小，防止来回滚动时重新创建 View）
+//设置每个layouthelper回收复用池大小，（如果一屏内相同类型的 View 个数比较多，需要设置一个合适的大小，防止来回滚动时重新创建 View）.
         RecyclerView.RecycledViewPool recycledViewPool =new RecyclerView.RecycledViewPool();
-        recycledViewPool.setMaxRecycledViews(0,20);
+        recycledViewPool.setMaxRecycledViews(0,1);
+        recycledViewPool.setMaxRecycledViews(1,1);
+        recycledViewPool.setMaxRecycledViews(2,5);
+        recycledViewPool.setMaxRecycledViews(3,8);
+        recycledViewPool.setMaxRecycledViews(4,2);
+        recycledViewPool.setMaxRecycledViews(5,4);
+        recycledViewPool.setMaxRecycledViews(6,1);
+        recycledViewPool.setMaxRecycledViews(7,8);
+        recycledViewPool.setMaxRecycledViews(8,1);
+        recycledViewPool.setMaxRecycledViews(9,6);
+        recycledViewPool.setMaxRecycledViews(10,8);
+
         mRecyclerView.setRecycledViewPool(recycledViewPool);
 //设置RecyclerView分割线,Item之间的间隔
 
@@ -144,16 +224,16 @@ public class ShopFragment extends Fragment {
 
 //        添加顶部FixLayoutHelper固定布局
         FixLayoutHelper fixLayoutHelper =new FixLayoutHelper(0,0);
-
+        fixLayoutHelper.setAlignType(TOP_LEFT);
         BaseDelegateAdapter serchfixLayoutHelper =new BaseDelegateAdapter(getActivity(),fixLayoutHelper, R.layout.item_serch,iconlist.size(), MainActivity.ViewType.MENU){
             @Override
             public void onBindViewHolder(BaseViewHolder holder, final int position) {
                 super.onBindViewHolder(holder, position);
-                ImageView iv_ic=holder.getView(R.id.iv_serch);
+                LinearLayout iv_ic=holder.getView(R.id.iv_serch);
                 iv_ic.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                ToastUtil.show(getActivity(),"跳入搜索界面");
+                        ToastUtil.show(getActivity(),"跳入搜索界面");
                     }
                 });
             }
@@ -350,9 +430,11 @@ public class ShopFragment extends Fragment {
                 super.onBindViewHolder(holder, position);
 
                 TextView tv_dpdes=holder.getView(R.id.tv_dpdes);
+                TextView tv_dpname=holder.getView(R.id.tv_dpname);
                 ImageView iv_dp=holder.getView(R.id.in_dp);
-                LinearLayout ll_dp=holder.getView(R.id.ll_dp);
+                CardView ll_dp=holder.getView(R.id.ll_dp);
                 tv_dpdes.setText(dplist.get(position).getTitle());
+                tv_dpname.setText(dplist.get(position).getBiaoti());
                 Glide.with(getActivity()).load(dplist.get(position).getImageUrl()).skipMemoryCache(false).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv_dp);
                 ll_dp.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -418,7 +500,7 @@ public class ShopFragment extends Fragment {
 //        newlinearHelper.setMarginRight(30);
 //        newlinearHelper.setMarginLeft(30);
 //        newlinearHelper.setMarginTop(15);
-        newlinearHelper.setDividerHeight(10);
+        newlinearHelper.setDividerHeight(20);
         newlinearHelper.setBgColor(ContextCompat.getColor(getActivity(),R.color.white));
 
         BaseDelegateAdapter danewpter =new BaseDelegateAdapter(getActivity(),newlinearHelper,R.layout.new_item,newlist.size(), MainActivity.ViewType.NEW){
@@ -429,7 +511,7 @@ public class ShopFragment extends Fragment {
                 TextView tv_newc=holder.getView(R.id.tv_newc);
                 TextView tv_newt=holder.getView(R.id.tv_newt);
                 ImageView iv_new=holder.getView(R.id.iv_new);
-                LinearLayout ll_new=holder.getView(R.id.ll_new);
+                CardView ll_new=holder.getView(R.id.ll_new);
                 tv_newt.setText(newlist.get(position).getTitle());
                 tv_newc.setText(newlist.get(position).getContent());
                 Glide.with(getActivity()).load(newlist.get(position).getImageUrl()).skipMemoryCache(false).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv_new);
@@ -471,6 +553,24 @@ public class ShopFragment extends Fragment {
         };
         adapters.add(danewpter);
 
+        //添加店铺猜你喜欢格兰布局----------------------------------------------
+        LinearLayoutHelper newxlinearHelpers = new LinearLayoutHelper(1);
+        newxlinearHelpers.setMarginTop(30);
+//        newlinearHelpers.setMarginRight(30);
+        newxlinearHelpers.setBgColor(ContextCompat.getColor(getActivity(),R.color.white));
+        BaseDelegateAdapter caititle =new BaseDelegateAdapter(getActivity(),newxlinearHelpers,R.layout.gnlike_item,1, MainActivity.ViewType.NEWTITLE){
+            @Override
+            public void onBindViewHolder(BaseViewHolder holder, int position) {
+                super.onBindViewHolder(holder, position);
+                holder.getView(R.id.tv_cnewmore).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ToastUtil.show(getActivity(),"跳入全部商家界面");
+                    }
+                });
+            }
+        };
+        adapters.add(caititle);
         /**
          设置瀑布流布局////添加瀑布流布局--------------------------------------------------------
          */
@@ -481,30 +581,34 @@ public class ShopFragment extends Fragment {
         // 公有属性
         staggeredGridLayoutHelper.setItemCount(20);// 设置布局里Item个数
 //        staggeredGridLayoutHelper.setPadding(10, 10, 10, 10);// 设置LayoutHelper的子元素相对LayoutHelper边缘的距离
-        staggeredGridLayoutHelper.setMargin(20, 20, 20, 20);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
+        staggeredGridLayoutHelper.setMargin(20, 0, 20, 0);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
         staggeredGridLayoutHelper.setBgColor(Color.WHITE);// 设置背景颜色
         staggeredGridLayoutHelper.setAspectRatio(3);// 设置设置布局内每行布局的宽与高的比
 
         // 特有属性
         staggeredGridLayoutHelper.setLane(2);// 设置控制瀑布流每行的Item数
-        staggeredGridLayoutHelper.setHGap(10);// 设置子元素之间的水平间距
-        staggeredGridLayoutHelper.setVGap(10);// 设置子元素之间的垂直间距
-        BaseDelegateAdapter stragshopadapter =new BaseDelegateAdapter(getActivity(),staggeredGridLayoutHelper,R.layout.dp_item,dplist.size(), MainActivity.ViewType.STRAGLE){
+        staggeredGridLayoutHelper.setHGap(20);// 设置子元素之间的水平间距
+        staggeredGridLayoutHelper.setVGap(20);// 设置子元素之间的垂直间距
+        stragshopadapter =new BaseDelegateAdapter(getActivity(),staggeredGridLayoutHelper,R.layout.dp_item,sdplist.size(), MainActivity.ViewType.STRAGLE){
             @Override
             public void onBindViewHolder(BaseViewHolder holder, final int position) {
                 super.onBindViewHolder(holder, position);
-                VirtualLayoutManager.LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200);
+                VirtualLayoutManager.LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300);
                 if (position % 2 == 0) {
                     layoutParams.mAspectRatio = 1.0f;
+//                    layoutParams.height = 320 + position % 7 * 20;
                 } else {
+
                     layoutParams.height = 340 + position % 7 * 20;
                 }
                 holder.itemView.setLayoutParams(layoutParams);
+                TextView tv_dpname=holder.getView(R.id.tv_dpname);
                 TextView tv_dpdes=holder.getView(R.id.tv_dpdes);
                 ImageView iv_dp=holder.getView(R.id.in_dp);
-                LinearLayout ll_dp=holder.getView(R.id.ll_dp);
-                tv_dpdes.setText(dplist.get(position).getTitle());
-                Glide.with(getActivity()).load(dplist.get(position).getImageUrl()).skipMemoryCache(false).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv_dp);
+                CardView ll_dp=holder.getView(R.id.ll_dp);
+                tv_dpdes.setText(sdplist.get(position).getTitle());
+                tv_dpname.setText(sdplist.get(position).getBiaoti());
+                Glide.with(getActivity()).load(sdplist.get(position).getImageUrl()).skipMemoryCache(false).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv_dp);
                 ll_dp.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -541,6 +645,27 @@ public class ShopFragment extends Fragment {
             }
         };
         adapters.add(stragshopadapter);
+
+
+//        SingleLayoutHelper layoutHelper = new SingleLayoutHelper();
+//        adapter_footer =new BaseDelegateAdapter(getActivity(),layoutHelper,R.layout.item_footer,1, MainActivity.ViewType.NEWTITLE){
+//            @Override
+//            public void onBindViewHolder(BaseViewHolder holder, int position) {
+//                super.onBindViewHolder(holder, position);
+//                TextView textView= holder.itemView.findViewById(R.id.textview);
+//                ProgressBar progressBar=holder.itemView.findViewById(R.id.progressbar);
+//                if(hasmore){
+//                    textView.setText("加载中...");
+//                    progressBar.setVisibility(View.VISIBLE);
+//                }else{
+//                    textView.setText("-----我是有底线的-------");
+//                    progressBar.setVisibility(View.GONE);
+//                }
+//            }
+//        };
+//
+//        adapters.add(adapter_footer);
+//
 
         //设置适配器
         delegateAdapter.setAdapters(adapters);
@@ -618,6 +743,7 @@ public class ShopFragment extends Fragment {
         Gson gson = new Gson();
         Common common = gson.fromJson(result, Common.class);
         dplist=common.getShop();
+        sdplist=common.getShop();
     }
     private void geticon() {
 

@@ -14,11 +14,11 @@ import android.view.WindowManager;
  * @version 1.0
  * @since 19 Mar 2016
  */
-public class Utils {
+public class BottomBarUtils {
 
     public static final int NO_COLOR = Color.TRANSPARENT;
 
-    private Utils() {
+    private BottomBarUtils() {
     }
 
     /**

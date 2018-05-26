@@ -11,7 +11,7 @@ import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
-import com.ls.libarys.bottombar.utils.Utils;
+import com.ls.libarys.bottombar.utils.BottomBarUtils;
 
 
 /**
@@ -239,7 +239,7 @@ public class BottomNavigationItem {
         } else if (this.mActiveColor != 0) {
             return mActiveColor;
         } else {
-            return Utils.NO_COLOR;
+            return BottomBarUtils.NO_COLOR;
         }
     }
 
@@ -255,7 +255,7 @@ public class BottomNavigationItem {
         } else if (this.mInActiveColor != 0) {
             return mInActiveColor;
         } else {
-            return Utils.NO_COLOR;
+            return BottomBarUtils.NO_COLOR;
         }
     }
 

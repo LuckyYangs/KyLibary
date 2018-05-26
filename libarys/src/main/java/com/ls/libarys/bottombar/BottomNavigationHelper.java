@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 
 import com.ls.libarys.R;
-import com.ls.libarys.bottombar.utils.Utils;
+import com.ls.libarys.bottombar.utils.BottomBarUtils;
 
 /**
  * Class description : This is utils class specific for this library, most the common code goes here.
@@ -123,13 +123,13 @@ class BottomNavigationHelper {
         int activeColor = bottomNavigationItem.getActiveColor(context);
         int inActiveColor = bottomNavigationItem.getInActiveColor(context);
 
-        if (activeColor != Utils.NO_COLOR) {
+        if (activeColor != BottomBarUtils.NO_COLOR) {
             bottomNavigationTab.setActiveColor(activeColor);
         } else {
             bottomNavigationTab.setActiveColor(bottomNavigationBar.getActiveColor());
         }
 
-        if (inActiveColor != Utils.NO_COLOR) {
+        if (inActiveColor != BottomBarUtils.NO_COLOR) {
             bottomNavigationTab.setInactiveColor(inActiveColor);
         } else {
             bottomNavigationTab.setInactiveColor(bottomNavigationBar.getInActiveColor());

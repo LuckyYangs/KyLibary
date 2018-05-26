@@ -21,7 +21,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ls.libarys.R;
-import com.ls.libarys.banner.listener.OnBannerClickListener;
 import com.ls.libarys.banner.listener.OnBannerListener;
 import com.ls.libarys.banner.loader.ImageLoaderInterface;
 import com.ls.libarys.banner.view.BannerViewPager;
@@ -70,7 +69,6 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
     private BannerPagerAdapter adapter;
     private OnPageChangeListener mOnPageChangeListener;
     private BannerScroller mScroller;
-    private OnBannerClickListener bannerListener;
     private OnBannerListener listener;
     private DisplayMetrics dm;
 
@@ -357,10 +355,10 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
                 url = imagesUrl.get(i - 1);
             }
             imageViews.add(imageView);
-            if (imageLoader != null)
-                imageLoader.displayImage(context, url, imageView);
-            else
-                Log.e(tag, "Please set images loader.");
+            if (imageLoader != null){
+                imageLoader.displayImage(context, url, imageView);}
+            else{
+                Log.e(tag, "Please set images loader.");}
         }
     }
 
@@ -413,11 +411,10 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
                 imageView.setImageResource(mIndicatorUnselectedResId);
             }
             indicatorImages.add(imageView);
-            if (bannerStyle == BannerConfig.CIRCLE_INDICATOR ||
-                    bannerStyle == BannerConfig.CIRCLE_INDICATOR_TITLE)
-                indicator.addView(imageView, params);
-            else if (bannerStyle == BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE)
-                indicatorInside.addView(imageView, params);
+            if (bannerStyle == BannerConfig.CIRCLE_INDICATOR || bannerStyle == BannerConfig.CIRCLE_INDICATOR_TITLE){
+                indicator.addView(imageView, params);}
+            else if (bannerStyle == BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE){
+                indicatorInside.addView(imageView, params);}
         }
     }
 
@@ -431,15 +428,15 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
         viewPager.setAdapter(adapter);
         viewPager.setFocusable(true);
         viewPager.setCurrentItem(1);
-        if (gravity != -1)
-            indicator.setGravity(gravity);
+        if (gravity != -1){
+            indicator.setGravity(gravity);}
         if (isScroll && count > 1) {
             viewPager.setScrollable(true);
         } else {
             viewPager.setScrollable(false);
         }
-        if (isAutoPlay)
-            startAutoPlay();
+        if (isAutoPlay){
+            startAutoPlay();}
     }
 
 
@@ -492,8 +489,8 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
      */
     public int toRealPosition(int position) {
         int realPosition = (position - 1) % count;
-        if (realPosition < 0)
-            realPosition += count;
+        if (realPosition < 0){
+            realPosition += count;}
         return realPosition;
     }
 
@@ -513,16 +510,7 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
         public Object instantiateItem(ViewGroup container, final int position) {
             container.addView(imageViews.get(position));
             View view = imageViews.get(position);
-            if (bannerListener != null) {
-                view.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Log.e(tag, "你正在使用旧版点击事件接口，下标是从1开始，" +
-                                "为了体验请更换为setOnBannerListener，下标从0开始计算");
-                        bannerListener.OnBannerClick(position);
-                    }
-                });
-            }
+
             if (listener != null) {
                 view.setOnClickListener(new OnClickListener() {
                     @Override
@@ -587,8 +575,8 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
             indicatorImages.get((position - 1 + count) % count).setImageResource(mIndicatorSelectedResId);
             lastPosition = position;
         }
-        if (position == 0) position = count;
-        if (position > count) position = 1;
+        if (position == 0){ position = count;}
+        if (position > count) {position = 1;}
         switch (bannerStyle) {
             case BannerConfig.CIRCLE_INDICATOR:
                 break;
@@ -609,11 +597,7 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
 
     }
 
-    @Deprecated
-    public Banner setOnBannerClickListener(OnBannerClickListener listener) {
-        this.bannerListener = listener;
-        return this;
-    }
+
 
     /**
      * 废弃了旧版接口，新版的接口下标是从1开始，同时解决下标越界问题

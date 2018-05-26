@@ -26,7 +26,7 @@ import android.widget.LinearLayout;
 import com.ls.libarys.R;
 import com.ls.libarys.bottombar.behaviour.BottomNavBarFabBehaviour;
 import com.ls.libarys.bottombar.behaviour.BottomVerticalScrollBehavior;
-import com.ls.libarys.bottombar.utils.Utils;
+import com.ls.libarys.bottombar.utils.BottomBarUtils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -149,7 +149,7 @@ public class BottomNavigationBar extends FrameLayout {
         if (attrs != null) {
             TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.BottomNavigationBar, 0, 0);
 
-            mActiveColor = typedArray.getColor(R.styleable.BottomNavigationBar_bnbActiveColor, Utils.fetchContextColor(context, R.attr.colorAccent));
+            mActiveColor = typedArray.getColor(R.styleable.BottomNavigationBar_bnbActiveColor, BottomBarUtils.fetchContextColor(context, R.attr.colorAccent));
             mInActiveColor = typedArray.getColor(R.styleable.BottomNavigationBar_bnbInactiveColor, Color.LTGRAY);
             mBackgroundColor = typedArray.getColor(R.styleable.BottomNavigationBar_bnbBackgroundColor, Color.WHITE);
             mAutoHideEnabled = typedArray.getBoolean(R.styleable.BottomNavigationBar_bnbAutoHideEnabled, true);
@@ -197,7 +197,7 @@ public class BottomNavigationBar extends FrameLayout {
 
             typedArray.recycle();
         } else {
-            mActiveColor = Utils.fetchContextColor(context, R.attr.colorAccent);
+            mActiveColor = BottomBarUtils.fetchContextColor(context, R.attr.colorAccent);
             mInActiveColor = Color.LTGRAY;
             mBackgroundColor = Color.WHITE;
             mElevation = getResources().getDimension(R.dimen.bottom_navigation_elevation);
@@ -385,7 +385,7 @@ public class BottomNavigationBar extends FrameLayout {
                 mContainer.setBackgroundColor(mBackgroundColor);
             }
 
-            int screenWidth = Utils.getScreenWidth(getContext());
+            int screenWidth = BottomBarUtils.getScreenWidth(getContext());
 
             if (mMode == MODE_FIXED || mMode == MODE_FIXED_NO_TITLE) {
 

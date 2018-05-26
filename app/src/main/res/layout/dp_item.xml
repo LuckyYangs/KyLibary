@@ -1,20 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="150dp"
     android:layout_height="150dp"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_dp"
-    android:background="@color/white"
-    android:orientation="vertical">
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
     <ImageView
         android:id="@+id/in_dp"
         android:layout_width="match_parent"
-        android:text="店铺推荐"
         android:background="@mipmap/dp"
         android:scaleType="fitXY"
         android:layout_weight="1"
         android:layout_height="wrap_content"
          />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/kj_space_5"
+
+        android:layout_height="20dp">
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="25dp"
+            android:src="@mipmap/hot"
+            />
+    <TextView
+        android:id="@+id/tv_dpname"
+        android:layout_marginLeft="@dimen/kj_space_2"
+        android:layout_width="@dimen/kj_space_0"
+        android:text="店铺名字"
+        android:layout_weight="1"
+        android:gravity="center|left"
+        android:textSize="@dimen/text_size_14"
+        android:textColor="@color/textblack"
+        android:layout_height="match_parent"
+        />
+    </LinearLayout>
     <TextView
 
         android:layout_marginTop="@dimen/kj_space_5"
@@ -27,5 +58,7 @@
         android:maxEms="8"
         android:maxLines="2"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/kj_space_5"
         />
-</LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

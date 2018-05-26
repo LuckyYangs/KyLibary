@@ -14,7 +14,7 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 
 
-import com.ls.libarys.bottombar.utils.Utils;
+import com.ls.libarys.bottombar.utils.BottomBarUtils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -120,8 +120,8 @@ public class ShapeBadgeItem extends BadgeItem<ShapeBadgeItem> {
      * @return this, to allow builder pattern
      */
     public ShapeBadgeItem setSizeInDp(Context context, int heightInDp, int widthInDp) {
-        mHeightInPixels = Utils.dp2px(context, heightInDp);
-        mWidthInPixels = Utils.dp2px(context, widthInDp);
+        mHeightInPixels = BottomBarUtils.dp2px(context, heightInDp);
+        mWidthInPixels = BottomBarUtils.dp2px(context, widthInDp);
         if (isWeakReferenceValid()) {
             getTextView().get().setDimens(mWidthInPixels, mHeightInPixels);
         }
@@ -148,7 +148,7 @@ public class ShapeBadgeItem extends BadgeItem<ShapeBadgeItem> {
      * @return this, to allow builder pattern
      */
     public ShapeBadgeItem setEdgeMarginInDp(Context context, int edgeMarginInDp) {
-        mEdgeMarginInPx = Utils.dp2px(context, edgeMarginInDp);
+        mEdgeMarginInPx = BottomBarUtils.dp2px(context, edgeMarginInDp);
         refreshMargin();
         return this;
     }
@@ -199,11 +199,11 @@ public class ShapeBadgeItem extends BadgeItem<ShapeBadgeItem> {
     @Override
     void bindToBottomTabInternal(BottomNavigationTab bottomNavigationTab) {
         if (mHeightInPixels == 0)
-            mHeightInPixels = Utils.dp2px(bottomNavigationTab.getContext(), 12);
+            mHeightInPixels = BottomBarUtils.dp2px(bottomNavigationTab.getContext(), 12);
         if (mWidthInPixels == 0)
-            mWidthInPixels = Utils.dp2px(bottomNavigationTab.getContext(), 12);
+            mWidthInPixels = BottomBarUtils.dp2px(bottomNavigationTab.getContext(), 12);
         if (mEdgeMarginInPx == 0)
-            mEdgeMarginInPx = Utils.dp2px(bottomNavigationTab.getContext(), 4);
+            mEdgeMarginInPx = BottomBarUtils.dp2px(bottomNavigationTab.getContext(), 4);
 
         refreshMargin();
         refreshColor();// so that user set color will be updated

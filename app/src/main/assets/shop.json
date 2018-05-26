@@ -2,50 +2,50 @@
     "code": 200,
     "msg": "ok",
     "shop": [
-        {
+        {   "biaoti":"乾坤琴行",
             "title": "亚马逊 速卖通 跨境产品 春季新品性感蕾丝拼接露肩T恤 好质量",
             "imageUrl": "https://cbu01.alicdn.com/img/ibank/2014/031/328/1702823130_1067572911.310x310.jpg"
-           
+
         },
-        {
+        {"biaoti":"时尚女郎店",
             "title": "2018夏季新款女式短袖纯色条纹t恤韩版女装圆领夜市热销货源批发",
             "imageUrl": "https://cbu01.alicdn.com/img/ibank/2018/062/347/8811743260_113807196.310x310.jpg"
         },
-        {
+        {"biaoti":"时光小屋",
             "title": "ebay速卖通wish亚马逊爆款 跨境产品欧美V领交叉坑条连衣裙打底裙",
-     
+
             "imageUrl": "https://cbu01.alicdn.com/img/ibank/2017/846/204/3821402648_838551043.310x310.jpg"
-    
+
         },
-		  {
+        {"biaoti":"嘻哈衣服铺",
             "title": "2018夏季新款短袖T恤女库存韩版印花圆领百搭女式T跑江湖暴利产品",
-     
+
             "imageUrl": "https://cbu01.alicdn.com/img/ibank/2018/540/109/8612901045_1556808215.310x310.jpg"
-    
+
         },
-		  {
+        {"biaoti":"男人堂",
             "title": "古圣堂男用外用印度神油三代喷剂 成人男性做爱用品 来吧 功能及用途 见产品详情图片",
-     
+
             "imageUrl": "https://cbu01.alicdn.com/img/ibank/2016/261/166/3372661162_1780978670.310x310.jpg"
-    
+
         },
-		  {
+        {"biaoti":"情趣店",
             "title": "批发女士情趣内衣 免费提供产品图片 100%实物拍 质量保证",
-     
+
             "imageUrl": "https://cbu01.alicdn.com/img/ibank/2017/542/063/4597360245_1654191829.310x310.jpg"
-    
+
         },
-		  {
+        {"biaoti":"时尚芭莎",
             "title": "厂家特价批发跑量产品女装阿里巴巴地摊热卖货源外贸女式长袖T恤",
-     
+
             "imageUrl": "https://cbu01.alicdn.com/img/ibank/2018/169/947/8580749961_836937913.310x310.jpg"
-    
+
         },
-		  {
+        {"biaoti":"学生天堂",
             "title": "性感马甲学生装写真角色扮演夜店制服诱惑DS演出服歌手服舞台服 误差范围 见产品",
-     
+
             "imageUrl": "https://cbu01.alicdn.com/img/ibank/2012/678/849/695948876_549035752.310x310.jpg"
-    
+
         }
     ]
 }

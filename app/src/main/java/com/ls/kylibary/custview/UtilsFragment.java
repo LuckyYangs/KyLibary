@@ -113,8 +113,8 @@ public class UtilsFragment extends Fragment  {
                     refreshLayout.finishLoadMore();
                 }else {
                     refreshLayout.finishLoadMore();
+                    refreshLayout.finishLoadMoreWithNoMoreData();
                     refreshLayout.setNoMoreData(true);
-                    ToastUtil.show(getActivity(),"没有了");
                 }
             }
         });
@@ -177,11 +177,7 @@ public class UtilsFragment extends Fragment  {
         utilsdata=common.getUtil();
     }
 
-    private  void adddata() {
-        for (int j=0;j<utilsdata.subList(10,18).size();j++){
-            utilsdata.add(utilsdata.subList(10,18).get(j));
-        }
-    }
+
 
 
 }
