@@ -1,11 +1,13 @@
 package com.ls.kylibary.main;
 
+import android.Manifest;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.ls.kylibary.R;
 import com.ls.kylibary.banner.BannarActivity;
@@ -23,18 +26,22 @@ import com.ls.libarys.bottombar.BottomNavigationBar;
 import com.ls.libarys.bottombar.BottomNavigationItem;
 import com.ls.libarys.logger.AndroidLogAdapter;
 import com.ls.libarys.logger.Logger;
+import com.ls.libarys.rxpermissions.Permission;
+import com.ls.libarys.rxpermissions.RxPermissions;
 import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.DrawerLeftEdgeSize;
 import com.ls.libarys.utils.StatusBarUtil;
 
 import java.util.ArrayList;
 
+import io.reactivex.functions.Consumer;
+
 /**
  
               .---.          .-----------
-             /  /   \  __  /    ------
-            / /  //  \(  )/    -----
-           //////    ' \/ `   ---
+             /  /   \  __   /    ------
+            / /  //  \(- -)/    -----
+           //////     ' \/ `   ---
           //// /     :    : ---
          // /        `    '--
         //           //..\\
@@ -50,7 +57,7 @@ import java.util.ArrayList;
  *  -----------------------------------------------
  * | 类  名：| MainActivity                        
  *  -----------------------------------------------
- * | 简  述: | <功能简述>                          
+ * | 简  述: | 主页
  *  -----------------------------------------------
  */
  
@@ -87,8 +94,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         StatusBarUtil.setColorForDrawerLayout(this, (DrawerLayout) findViewById(R.id.drawer_layout), mStatusBarColor, mAlpha);
         initView();
         initData();
+        requestPermissions();
     }
+    private void requestPermissions() {
+        RxPermissions rxPermission = new RxPermissions(this);
+        rxPermission.requestEach(Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_CALENDAR,
+                        Manifest.permission.READ_CALL_LOG,
+                        Manifest.permission.READ_CONTACTS,
+                        Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.READ_SMS,
+                        Manifest.permission.RECORD_AUDIO,
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.CALL_PHONE,
+                        Manifest.permission.SEND_SMS)
+                .subscribe(new io.reactivex.functions.Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {
+                            // 用户已经同意该权限
+                            //申请的权限全部允许
+                            Toast.makeText(MainActivity.this, "允许了权限!"+permission.name , Toast.LENGTH_SHORT).show();
+                            Log.d("permission", permission.name + " is granted.");
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+                            Toast.makeText(MainActivity.this, "拒绝了权限!"+permission.name , Toast.LENGTH_SHORT).show();
+                            Log.d("permission", permission.name + " is denied. More info should be provided.");
+                        } else {
+                            // 用户拒绝了该权限，并且选中『不再询问』
+                            Log.d("permission", permission.name + " is denied.");
+                        }
+                    }
+                });
 
+
+    }
 
     private void initView() {
 

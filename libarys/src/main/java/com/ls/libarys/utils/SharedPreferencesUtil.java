@@ -103,5 +103,10 @@ public class SharedPreferencesUtil {
 
         return null;
     }
-
+    public static void cleanData(Context context ,String FileName){
+        SharedPreferences sp = context.getSharedPreferences(FileName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.clear();
+        editor.commit();
+    }
 }
