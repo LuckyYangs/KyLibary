@@ -1,4 +1,4 @@
-package com.ls.libarys.Compresshelper;
+package com.ls.libarys.utils;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -23,7 +23,7 @@ import java.io.OutputStream;
  */
 
 public class FileUtil {
-    static final String FILES_PATH = "CompressHelper";
+    static final String FILES_PATH = "FileCompressUtil";
     private static final int EOF = -1;
     private static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
 

@@ -1,4 +1,4 @@
-package com.ls.libarys.Compresshelper;
+package com.ls.libarys.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,8 +12,11 @@ import java.io.File;
 
  */
 
-public class CompressHelper {
-    private static volatile CompressHelper INSTANCE;
+public class FileCompressUtil {
+
+//     requestParams.addBodyParameter("service_image1", CompressHelper.getDefault(getApplicationContext()).compressToFile(new File(service_image1)),"multipart/form-data");
+
+    private static volatile FileCompressUtil INSTANCE;
 
     private Context context;
     /**
@@ -50,11 +53,11 @@ public class CompressHelper {
      */
     private String fileName;
 
-    public static CompressHelper getDefault(Context context) {
+    public static FileCompressUtil getDefault(Context context) {
         if (INSTANCE == null) {
-            synchronized (CompressHelper.class) {
+            synchronized (FileCompressUtil.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new CompressHelper(context);
+                    INSTANCE = new FileCompressUtil(context);
                 }
             }
         }
@@ -62,7 +65,7 @@ public class CompressHelper {
     }
 
 
-    private CompressHelper(Context context) {
+    private FileCompressUtil(Context context) {
         this.context = context;
         destinationDirectoryPath = context.getCacheDir().getPath() + File.pathSeparator + FileUtil.FILES_PATH;
     }
@@ -92,10 +95,10 @@ public class CompressHelper {
      * 采用建造者模式，设置Builder
      */
     public static class Builder {
-        private CompressHelper mCompressHelper;
+        private FileCompressUtil mCompressHelper;
 
         public Builder(Context context) {
-            mCompressHelper = new CompressHelper(context);
+            mCompressHelper = new FileCompressUtil(context);
         }
 
         /**
@@ -168,7 +171,7 @@ public class CompressHelper {
             return this;
         }
 
-        public CompressHelper build() {
+        public FileCompressUtil build() {
             return mCompressHelper;
         }
     }

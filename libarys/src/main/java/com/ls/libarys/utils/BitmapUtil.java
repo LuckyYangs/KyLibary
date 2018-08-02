@@ -1,4 +1,4 @@
-package com.ls.libarys.Compresshelper;
+package com.ls.libarys.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
