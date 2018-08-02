@@ -19,6 +19,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.alibaba.android.vlayout.DelegateAdapter;
+import com.alibaba.android.vlayout.VirtualLayoutManager;
+import com.alibaba.android.vlayout.layout.FixLayoutHelper;
+import com.alibaba.android.vlayout.layout.GridLayoutHelper;
+import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
+import com.alibaba.android.vlayout.layout.OnePlusNLayoutHelper;
+import com.alibaba.android.vlayout.layout.StaggeredGridLayoutHelper;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
@@ -26,6 +33,7 @@ import com.ls.kylibary.R;
 import com.ls.kylibary.banner.BannarActivity;
 import com.ls.kylibary.banner.GlideImageLoader;
 import com.ls.kylibary.resfresh.ResFreshActivity;
+import com.ls.kylibary.vlayout.BaseDelegateAdapter;
 import com.ls.kylibary.vlayout.Common;
 import com.ls.kylibary.vlayout.IconEntity;
 import com.ls.libarys.banner.Banner;
@@ -39,18 +47,7 @@ import com.ls.libarys.lsrefreshlayout.layout.listener.OnLoadMoreListener;
 import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.ToastUtil;
 import com.ls.libarys.view.MarqueeView;
-import com.ls.libarys.vlayout.BaseDelegateAdapter;
-import com.ls.libarys.vlayout.DelegateAdapter;
-import com.ls.libarys.vlayout.VirtualLayoutManager;
-import com.ls.libarys.vlayout.layout.FixAreaAdjuster;
-import com.ls.libarys.vlayout.layout.FixLayoutHelper;
-import com.ls.libarys.vlayout.layout.GridLayoutHelper;
-import com.ls.libarys.vlayout.layout.LinearLayoutHelper;
-import com.ls.libarys.vlayout.layout.OnePlusNLayoutHelper;
-import com.ls.libarys.vlayout.layout.ScrollFixLayoutHelper;
-import com.ls.libarys.vlayout.layout.SingleLayoutHelper;
-import com.ls.libarys.vlayout.layout.StaggeredGridLayoutHelper;
-import com.ls.libarys.vlayout.layout.StickyLayoutHelper;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,7 +58,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.ls.libarys.vlayout.layout.FixLayoutHelper.TOP_LEFT;
+import static com.alibaba.android.vlayout.layout.FixLayoutHelper.TOP_LEFT;
+
 
 /**
 
