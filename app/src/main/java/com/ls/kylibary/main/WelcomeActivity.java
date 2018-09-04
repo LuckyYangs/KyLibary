@@ -1,6 +1,7 @@
 package com.ls.kylibary.main;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -13,6 +14,7 @@ import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.SharedPreferencesUtil;
 import com.ls.libarys.utils.StatusBarUtil;
 import com.ls.libarys.view.CountDownView;
+import com.ls.libarys.view.WaveAnim;
 
 public class WelcomeActivity extends Activity {
     private boolean isfirst;
@@ -55,6 +57,14 @@ public class WelcomeActivity extends Activity {
 //
 //            }
 //        },5000);
+        WaveAnim.fullActivity(WelcomeActivity.this,cdvTime)
+                .colorOrImageRes(R.color.colorPrimary)
+                .go(new WaveAnim.OnAnimationEndListener() {
+                    @Override
+                    public void onAnimationEnd() {
+                        ActivityUtil.startAty(WelcomeActivity.this,MainActivity.class);
+                    }
+                });
     }
   public  void jump(){
       if(!isfirst){

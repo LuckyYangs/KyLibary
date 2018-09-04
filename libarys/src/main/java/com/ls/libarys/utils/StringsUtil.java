@@ -3,8 +3,6 @@ package com.ls.libarys.utils;
 /**
  * 作  者：@author李 洋（295803379）
  * 时  间：2018/3/28 11:44
- * 项目名：CompanyProject
- * 包  名：com.md.personnelfiles.utils
  * 类  名：StringsUtil
  * 描  述: 判断字符串是否为空的工具类
  */
@@ -13,7 +11,7 @@ public class StringsUtil {
      * 判断字符串不为null或去除空格长度>0
      *
      * @param s 待校验字符串
-     * @return {@code true}: 空<br> {@code false}: 不为空
+     * @return 不为空返回true
      */
     public  static  boolean isNotEmpty(String s){
             return s!=null&&s.trim().length()>0;
@@ -23,7 +21,7 @@ public class StringsUtil {
      * 判断字符串是否为null或长度为0
      *
      * @param s 待校验字符串
-     * @return {@code true}: 空<br> {@code false}: 不为空
+     * @return 为空返回true
      */
     public static boolean isEmpty(CharSequence s) {
         return s == null || s.length() == 0;

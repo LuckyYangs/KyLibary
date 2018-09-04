@@ -3,7 +3,6 @@ package com.ls.libarys.utils;
 /**
  * @Author： AndroidBigGuy（QQ295803379）>
  * 时  间： 2018/4/17
- * 包  名： com.md.personnelfiles.utils
  * 类  名： PhoneIdCheckUtils
  * 简  述:  手机号身份证验证工具类
  */

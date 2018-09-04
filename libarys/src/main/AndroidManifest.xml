@@ -1,2 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ls.libarys"/>
+    package="com.ls.libarys">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application>
+        <activity android:name="com.ls.libarys.matisse.ui.MatisseActivity"/>
+        <activity android:name="com.ls.libarys.matisse.internal.ui.AlbumPreviewActivity"/>
+        <activity android:name="com.ls.libarys.matisse.internal.ui.SelectedPreviewActivity"/>
+    </application>
+</manifest>

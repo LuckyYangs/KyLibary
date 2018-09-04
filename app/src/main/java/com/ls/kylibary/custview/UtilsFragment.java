@@ -26,6 +26,8 @@ import com.ls.libarys.lsrefreshlayout.layout.LsRefreshLayout;
 import com.ls.libarys.lsrefreshlayout.layout.api.RefreshLayout;
 import com.ls.libarys.lsrefreshlayout.layout.listener.OnLoadMoreListener;
 import com.ls.libarys.lsrefreshlayout.layout.listener.OnRefreshListener;
+import com.ls.libarys.skeletonscrenn.Skeleton;
+import com.ls.libarys.skeletonscrenn.SkeletonScreen;
 import com.ls.libarys.utils.ActivityUtil;
 import com.ls.libarys.utils.ToastUtil;
 
@@ -87,6 +89,17 @@ public class UtilsFragment extends Fragment  {
 
         //给RecyclerView设置适配器
         recyclerView.setAdapter(mAdapter);
+        final SkeletonScreen skeletonScreen = Skeleton.bind(recyclerView)
+                .adapter(mAdapter)
+                .load(R.layout.item_skeleton_person)
+                .shimmer(true)
+                .show();
+        recyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                skeletonScreen.hide();
+            }
+        }, 2000);
 //        设置加载动画
         mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
 //        动画只第一次加载

@@ -40,6 +40,9 @@
         android:layout_height="48dp"
         android:background="#E45171"
         tl:tl_indicator_color="#eeeeee"
+        tl:tl_divider_padding="@dimen/kj_space_10"
+        tl:tl_divider_width="@dimen/kj_space_20"
+        tl:tl_indicator_margin_bottom="@dimen/kj_space_5"
         tl:tl_indicator_style="TRIANGLE"/>
 
 
